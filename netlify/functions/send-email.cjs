@@ -1,14 +1,15 @@
 // Netlify serverless function — sends every form submission straight to
 // info@probmatrix.io via SMTP, using the mailbox's own credentials.
-// This does NOT depend on Netlify's Forms notification settings at all,
-// so it keeps working even if that dashboard toggle is misconfigured,
-// forgotten, or flaky.
 //
-// NOTE: written as an ES Module (import/export) because this project's
-// package.json has "type": "module" — Node.js then treats every .js file
-// as an ES Module, so this file cannot use require()/module.exports
-// (that's CommonJS syntax and causes a "module is not defined in ES
-// module scope" crash at runtime).
+// NOTE: this file is named send-email.cjs (not .js) on purpose. This
+// project's package.json has "type": "module", which makes Node.js treat
+// every plain .js file as an ES Module. The .cjs extension overrides that
+// unambiguously and tells Node "this file is CommonJS, no matter what,"
+// which avoids the "module is not defined in ES module scope" crash that
+// happened even when the file was rewritten with import/export syntax
+// (Netlify's function bundler was producing a CommonJS-shaped bundle
+// regardless of source syntax, which re-triggered the same conflict under
+// the .js extension).
 //
 // Requires these environment variables to be set in:
 //   Netlify dashboard -> Site configuration -> Environment variables
@@ -18,9 +19,9 @@
 //   SMTP_USER   info@probmatrix.io
 //   SMTP_PASS   the mailbox's own password (or an app-specific password)
 
-import nodemailer from 'nodemailer'
+const nodemailer = require('nodemailer')
 
-export const handler = async (event) => {
+exports.handler = async function (event) {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' }
   }
