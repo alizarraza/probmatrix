@@ -4,6 +4,12 @@
 // so it keeps working even if that dashboard toggle is misconfigured,
 // forgotten, or flaky.
 //
+// NOTE: written as an ES Module (import/export) because this project's
+// package.json has "type": "module" — Node.js then treats every .js file
+// as an ES Module, so this file cannot use require()/module.exports
+// (that's CommonJS syntax and causes a "module is not defined in ES
+// module scope" crash at runtime).
+//
 // Requires these environment variables to be set in:
 //   Netlify dashboard -> Site configuration -> Environment variables
 //
@@ -11,15 +17,10 @@
 //   SMTP_PORT   e.g. 465
 //   SMTP_USER   info@probmatrix.io
 //   SMTP_PASS   the mailbox's own password (or an app-specific password)
-//
-// These are the same SMTP settings you'd type into Outlook/Thunderbird to
-// send mail AS info@probmatrix.io — ask your email/hosting provider
-// (Hostinger, Titan, Zoho, Google Workspace, etc.) for the exact host/port
-// if you don't already have them handy.
 
-const nodemailer = require('nodemailer')
+import nodemailer from 'nodemailer'
 
-exports.handler = async function (event) {
+export const handler = async (event) => {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' }
   }
