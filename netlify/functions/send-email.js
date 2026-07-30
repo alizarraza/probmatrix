@@ -1,16 +1,6 @@
 // Netlify serverless function — sends every form submission straight to
 // info@probmatrix.io via SMTP, using the mailbox's own credentials.
 //
-// NOTE: this file is named send-email.cjs (not .js) on purpose. This
-// project's package.json has "type": "module", which makes Node.js treat
-// every plain .js file as an ES Module. The .cjs extension overrides that
-// unambiguously and tells Node "this file is CommonJS, no matter what,"
-// which avoids the "module is not defined in ES module scope" crash that
-// happened even when the file was rewritten with import/export syntax
-// (Netlify's function bundler was producing a CommonJS-shaped bundle
-// regardless of source syntax, which re-triggered the same conflict under
-// the .js extension).
-//
 // Requires these environment variables to be set in:
 //   Netlify dashboard -> Site configuration -> Environment variables
 //
