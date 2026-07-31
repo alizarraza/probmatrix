@@ -777,9 +777,9 @@ export default function CredX(): JSX.Element {
 
                 <a
                   className={`cx-btn ${plan.highlighted ? "cx-btn-primary" : "cx-btn-outline"} cx-plan-cta`}
-                  href="mailto:info@probmatrix.io"
+                  href="/contact"
                 >
-                  Get {plan.name.replace("CredX ", "")} <span className="cx-btn-arrow" aria-hidden="true">→</span>
+                  Coming soon<span className="cx-btn-arrow" aria-hidden="true">→</span>
                 </a>
               </div>
             ))}

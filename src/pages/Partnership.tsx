@@ -212,7 +212,7 @@ export default function Partnership(): JSX.Element {
             <button type="button" className="px-btn px-btn-primary" onClick={() => setApplyOpen(true)}>
               Become a Partner <span aria-hidden="true">→</span>
             </button>
-            <a className="px-btn px-btn-outline" href="mailto:info@probmatrix.io">
+            <a className="px-btn px-btn-outline" href="/contact">
               Book a 30-Minute Partner Demo
             </a>
           </div>
