@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { heroSlides } from '../content/servicesContent'
 import { heroStats } from '../content/siteContent'
 import { IconArrowRight, IconGauge, IconExcel, IconChart, IconLayers } from './icons'
+import { useDemoModal } from '../context/DemoModalContext'
 
 const AUTO_ADVANCE_MS = 6500
 
@@ -17,6 +18,7 @@ const backdrops = [BgTunnel, BgSpreadsheet, BgNetwork, BgWaves]
 
 export default function Hero() {
   const [index, setIndex] = useState(0)
+  const { open: openDemoModal } = useDemoModal()
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -164,7 +166,12 @@ export default function Hero() {
             <Link to={slide.primaryCta.to} className="btn-primary">
               {slide.primaryCta.label} <IconArrowRight size={16} />
             </Link>
-            {slide.secondaryCta && (
+            {slide.secondaryCta && slide.secondaryCta.action === 'demo-modal' && (
+              <button type="button" onClick={openDemoModal} className="btn-secondary">
+                {slide.secondaryCta.label}
+              </button>
+            )}
+            {slide.secondaryCta && slide.secondaryCta.action !== 'demo-modal' && (
               <Link to={slide.secondaryCta.to} className="btn-secondary">
                 {slide.secondaryCta.label}
               </Link>

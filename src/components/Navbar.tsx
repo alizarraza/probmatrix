@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import Logo from './Logo'
 import { IconChevronDown } from './icons'
+import { useDemoModal } from '../context/DemoModalContext'
 
 type NavItem = {
   label: string
@@ -38,6 +39,7 @@ const navLinks: NavItem[] = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const { open: openDemoModal } = useDemoModal()
   const [scrolled, setScrolled] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null)
@@ -155,13 +157,14 @@ export default function Navbar() {
         </nav>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexShrink: 0 }}>
-          <a
-            href="/contact"
+          <button
+            type="button"
+            onClick={openDemoModal}
             className="btn-primary desktop-cta"
             style={{ fontSize: 13.5, padding: '10px 20px' }}
           >
             Request IFRS9 Add-in Demo
-          </a>
+          </button>
           <button
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"

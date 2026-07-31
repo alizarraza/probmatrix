@@ -1,9 +1,7 @@
 import { useState } from "react";
 import IFRS9Workflow from "../../components/IFRS9Workflow";
 import NativeExcelExperience from "../../components/Nativeexcelexperience";
-import DemoRequestForm from "../../components/forms/DemoRequestForm";
-import Modal from "../../components/Modal";
-import Toast from "../../components/Toast";
+import { useDemoModal } from "../../context/DemoModalContext";
 
 interface Edition {
   key: string;
@@ -495,8 +493,7 @@ function FaqItem({
 }
 
 export default function IfrsAddin(): JSX.Element {
-  const [demoOpen, setDemoOpen] = useState(false);
-  const [toastOpen, setToastOpen] = useState(false);
+  const { open: openDemoModal } = useDemoModal();
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
@@ -519,7 +516,7 @@ export default function IfrsAddin(): JSX.Element {
             </p>
 
             <div className="ia-hero-actions">
-  <button type="button" className="ia-btn ia-btn-primary" onClick={() => setDemoOpen(true)}>
+  <button type="button" className="ia-btn ia-btn-primary" onClick={openDemoModal}>
     Request a Demo <span aria-hidden="true">→</span>
   </button>
   {/* <a className="ia-btn ia-btn-outline" href="#editions">
@@ -1274,16 +1271,6 @@ export default function IfrsAddin(): JSX.Element {
       `,
         }}
       />
-
-      <Modal open={demoOpen} onClose={() => setDemoOpen(false)} title="Request a Demo">
-        <DemoRequestForm
-          onSuccess={() => {
-            setDemoOpen(false);
-            setToastOpen(true);
-          }}
-        />
-      </Modal>
-      <Toast message="Demo request submitted!" show={toastOpen} onDone={() => setToastOpen(false)} />
     </div>
   );
 }

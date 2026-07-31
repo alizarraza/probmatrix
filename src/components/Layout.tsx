@@ -1,9 +1,32 @@
 import type { ReactNode } from 'react'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import ChatWidget from './ChatWidget'
+import Modal from './Modal'
+import Toast from './Toast'
+import DemoRequestForm from './forms/DemoRequestForm'
+import { DemoModalProvider, useDemoModal } from '../context/DemoModalContext'
+
+function GlobalDemoModal() {
+  const { isOpen, close } = useDemoModal()
+  const [toastOpen, setToastOpen] = useState(false)
+
+  return (
+    <>
+      <Modal open={isOpen} onClose={close} title="Request a Demo">
+        <DemoRequestForm
+          onSuccess={() => {
+            close()
+            setToastOpen(true)
+          }}
+        />
+      </Modal>
+      <Toast message="Demo request submitted!" show={toastOpen} onDone={() => setToastOpen(false)} />
+    </>
+  )
+}
 
 export default function Layout({ children }: { children: ReactNode }) {
   const location = useLocation()
@@ -26,11 +49,14 @@ export default function Layout({ children }: { children: ReactNode }) {
   }, [location.pathname, location.hash])
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      <Navbar />
-      <main style={{ flex: 1 }}>{children}</main>
-      <Footer />
-      {/* <ChatWidget /> */}
-    </div>
+    <DemoModalProvider>
+      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <Navbar />
+        <main style={{ flex: 1 }}>{children}</main>
+        <Footer />
+        {/* <ChatWidget /> */}
+        <GlobalDemoModal />
+      </div>
+    </DemoModalProvider>
   )
 }

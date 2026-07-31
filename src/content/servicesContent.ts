@@ -10,7 +10,7 @@ export type HeroSlide = {
   subtitle: string
   bullets?: string[]
   primaryCta: { label: string; to: string }
-  secondaryCta?: { label: string; to: string }
+  secondaryCta?: { label: string; to: string; action?: 'demo-modal' }
   showStats?: boolean
 }
 
@@ -34,7 +34,7 @@ export const heroSlides: HeroSlide[] = [
       'User training & handover included',
     ],
     primaryCta: { label: 'See the Add-In', to: '/services#ifrs9-add-in' },
-    secondaryCta: { label: 'Request a Demo', to: '/contact' },
+    secondaryCta: { label: 'Request a Demo', to: '/contact', action: 'demo-modal' },
   },
   {
     eyebrow: 'CredX',
