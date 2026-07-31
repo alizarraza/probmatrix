@@ -22,7 +22,7 @@
 // below (or add it as another env var) to something like
 // "ProbMatrix Website <noreply@probmatrix.io>".
 
-const FROM_EMAIL = 'ProbMatrix Website <onboarding@resend.dev>'
+const FROM_EMAIL = 'ProbMatrix Website <noreply@probmatrix.io>'
 const TO_EMAIL = 'info@probmatrix.io'
 
 exports.handler = async function (event) {
