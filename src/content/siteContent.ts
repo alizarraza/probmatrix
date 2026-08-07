@@ -9,7 +9,7 @@ export const company = {
     'Discover how ProbMatrix specializes in risk management process automation using AI agents to enhance your operational efficiency and ensure compliance.',
   email: 'info@probmatrix.io',
   phone: '+92 336 5264744',
-  address: 'Office No. 325, Ruby Center, Karachi',
+  address: 'Office # 804, 8th floor, Landmark plaza, Karachi, Pakistan',
   year: new Date().getFullYear(),
 }
 

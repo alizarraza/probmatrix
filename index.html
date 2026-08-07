@@ -1,35 +1,53 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Empowering Risk Management with Automation & Intelligence | ProbMatrix</title>
-    <meta
-      name="description"
-      content="Discover how ProbMatrix specializes in risk management process automation using AI agents to enhance your operational efficiency and ensure compliance. Streamline your risk management today!"
-    />
-    <meta name="keywords" content="risk management, AI agents, risk management automation, IFRS 9, expected credit loss" />
-    <meta property="og:title" content="Automate Risk Management with AI | ProbMatrix" />
-    <meta property="og:description" content="Technology-driven risk management solutions for enhanced operational efficiency and compliance in financial risk management processes." />
-    <meta property="og:type" content="website" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-    <div id="root"></div>
 
-    <!--
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Empowering Risk Management with Automation & Intelligence | ProbMatrix</title>
+  <meta name="description"
+    content="Discover how ProbMatrix specializes in risk management process automation using AI agents to enhance your operational efficiency and ensure compliance. Streamline your risk management today!" />
+  <meta name="keywords"
+    content="risk management, AI agents, risk management automation, IFRS 9, expected credit loss" />
+  <meta property="og:title" content="Automate Risk Management with AI | ProbMatrix" />
+  <meta property="og:description"
+    content="Technology-driven risk management solutions for enhanced operational efficiency and compliance in financial risk management processes." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NV2PL93N');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NV2PL93N" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div id="root"></div>
+
+  <!--
       IMPORTANT: this must be YOUR actual entry script path — the one Vite
       dev server currently serves your app from (check your existing
       index.html for the exact src before replacing this file). Common
       defaults are /src/main.tsx or /src/main.ts — do not leave this as a
       guess if your project uses something different.
     -->
-    <script type="module" src="/src/main.tsx"></script>
+  <script type="module" src="/src/main.tsx"></script>
 
-    <!--
+  <!--
       Hidden static form — required for Netlify to detect and register this
       form at BUILD/DEPLOY time. Netlify's form-detection bot only scans
       plain HTML files, not JS-rendered content, so a React-rendered <form>
@@ -38,75 +56,76 @@
       in Contact.tsx, so Netlify knows to listen for submissions to it.
       It is never shown or used directly — it stays hidden and inert.
     -->
-    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="company_website" hidden>
-      <input type="hidden" name="form-name" value="contact" />
-      <input type="text" name="name" />
-      <input type="email" name="email" />
-      <textarea name="message"></textarea>
-      <input type="text" name="company_website" />
-    </form>
+  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="company_website" hidden>
+    <input type="hidden" name="form-name" value="contact" />
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <textarea name="message"></textarea>
+    <input type="text" name="company_website" />
+  </form>
 
-    <!-- Certification page: Enrollment Form -->
-    <form name="enrollment" method="POST" data-netlify="true" netlify-honeypot="company_website" hidden>
-      <input type="hidden" name="form-name" value="enrollment" />
-      <input type="text" name="name" />
-      <input type="email" name="email" />
-      <input type="tel" name="contact_number" />
-      <input type="text" name="organization" />
-      <input type="radio" name="describes_you" />
-      <input type="text" name="job_title" />
-      <input type="radio" name="ifrs9_familiarity" />
-      <textarea name="motivation"></textarea>
-      <input type="radio" name="referral_source" />
-      <input type="text" name="company_website" />
-    </form>
+  <!-- Certification page: Enrollment Form -->
+  <form name="enrollment" method="POST" data-netlify="true" netlify-honeypot="company_website" hidden>
+    <input type="hidden" name="form-name" value="enrollment" />
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="tel" name="contact_number" />
+    <input type="text" name="organization" />
+    <input type="radio" name="describes_you" />
+    <input type="text" name="job_title" />
+    <input type="radio" name="ifrs9_familiarity" />
+    <textarea name="motivation"></textarea>
+    <input type="radio" name="referral_source" />
+    <input type="text" name="company_website" />
+  </form>
 
-    <!-- Partnership page: Collaborate With Us form -->
-    <form name="partnership" method="POST" data-netlify="true" netlify-honeypot="company_website" hidden>
-      <input type="hidden" name="form-name" value="partnership" />
-      <input type="checkbox" name="tier_interested" />
-      <input type="radio" name="applicant_type" />
-      <input type="text" name="firm_name" />
-      <input type="text" name="countries_served" />
-      <input type="text" name="website" />
-      <input type="text" name="contact_name" />
-      <input type="text" name="role" />
-      <input type="email" name="email" />
-      <input type="tel" name="phone" />
-      <input type="checkbox" name="practice_focus" />
-      <input type="checkbox" name="focused_industries" />
-      <input type="text" name="portfolio_size" />
-      <input type="checkbox" name="services_offered" />
-      <input type="text" name="expected_client_count" />
-      <textarea name="notes"></textarea>
-      <input type="text" name="company_website" />
-    </form>
+  <!-- Partnership page: Collaborate With Us form -->
+  <form name="partnership" method="POST" data-netlify="true" netlify-honeypot="company_website" hidden>
+    <input type="hidden" name="form-name" value="partnership" />
+    <input type="checkbox" name="tier_interested" />
+    <input type="radio" name="applicant_type" />
+    <input type="text" name="firm_name" />
+    <input type="text" name="countries_served" />
+    <input type="text" name="website" />
+    <input type="text" name="contact_name" />
+    <input type="text" name="role" />
+    <input type="email" name="email" />
+    <input type="tel" name="phone" />
+    <input type="checkbox" name="practice_focus" />
+    <input type="checkbox" name="focused_industries" />
+    <input type="text" name="portfolio_size" />
+    <input type="checkbox" name="services_offered" />
+    <input type="text" name="expected_client_count" />
+    <textarea name="notes"></textarea>
+    <input type="text" name="company_website" />
+  </form>
 
-    <!-- Services page: Email Our Expert form -->
-    <form name="expert-request" method="POST" data-netlify="true" netlify-honeypot="company_website" hidden>
-      <input type="hidden" name="form-name" value="expert-request" />
-      <input type="text" name="name" />
-      <input type="text" name="company" />
-      <input type="email" name="email" />
-      <input type="tel" name="cell_number" />
-      <textarea name="requirements"></textarea>
-      <input type="text" name="company_website" />
-    </form>
+  <!-- Services page: Email Our Expert form -->
+  <form name="expert-request" method="POST" data-netlify="true" netlify-honeypot="company_website" hidden>
+    <input type="hidden" name="form-name" value="expert-request" />
+    <input type="text" name="name" />
+    <input type="text" name="company" />
+    <input type="email" name="email" />
+    <input type="tel" name="cell_number" />
+    <textarea name="requirements"></textarea>
+    <input type="text" name="company_website" />
+  </form>
 
-    <!-- IFRS 9 Add-In page: Demo Request form -->
-    <form name="demo-request" method="POST" data-netlify="true" netlify-honeypot="company_website" hidden>
-      <input type="hidden" name="form-name" value="demo-request" />
-      <input type="text" name="name" />
-      <input type="text" name="job_title" />
-      <input type="text" name="department" />
-      <input type="email" name="email" />
-      <input type="tel" name="phone" />
-      <input type="text" name="country" />
-      <input type="text" name="legal_entity" />
-      <input type="radio" name="fi_type" />
-      <input type="checkbox" name="primary_objective" />
-      <textarea name="success_criteria"></textarea>
-      <input type="text" name="company_website" />
-    </form>
-  </body>
+  <!-- IFRS 9 Add-In page: Demo Request form -->
+  <form name="demo-request" method="POST" data-netlify="true" netlify-honeypot="company_website" hidden>
+    <input type="hidden" name="form-name" value="demo-request" />
+    <input type="text" name="name" />
+    <input type="text" name="job_title" />
+    <input type="text" name="department" />
+    <input type="email" name="email" />
+    <input type="tel" name="phone" />
+    <input type="text" name="country" />
+    <input type="text" name="legal_entity" />
+    <input type="radio" name="fi_type" />
+    <input type="checkbox" name="primary_objective" />
+    <textarea name="success_criteria"></textarea>
+    <input type="text" name="company_website" />
+  </form>
+</body>
+
 </html>

@@ -210,8 +210,8 @@ export default function About() {
               <div>
                 <h3 style={{ fontSize: 16, marginBottom: 10 }}>Office</h3>
                 <p style={{ fontSize: 14.5, lineHeight: 1.8, color: 'var(--text-secondary)' }}>
-                  Office No. 325, 3rd Floor, Ruby Center,<br />
-                  I.I. Chundrigar Road, Karachi
+                  Office # 804, 8th floor<br />
+                  Landmark plaza, Karachi, Pakistan
                 </p>
               </div>
               <div>
@@ -226,8 +226,7 @@ export default function About() {
             <div className="card" style={{ padding: 0, overflow: 'hidden', minHeight: 280 }}>
               <iframe
                 title="ProbMatrix Office Location"
-                src="https://www.google.com/maps?q=Ruby+Center,+I.I.+Chundrigar+Road,+Karachi&output=embed"
-                width="100%"
+                src="https://www.google.com/maps?q=Office+%23+804,+8th+floor,+Landmark+plaza,+Karachi,+Pakistan&output=embed"                width="100%"
                 height="100%"
                 style={{ border: 0, minHeight: 280, display: 'block' }}
                 allowFullScreen
