@@ -11,7 +11,7 @@ const pdfGuides: PdfGuide[] = [
     title: "IFRS 9 ECL Guide for Development Finance Institutions",
     description:
       "Practical implementation guide, industry best practices, and regulatory expectations for DFIs.",
-    file: "/guides/ifrs9-ecl-guide-dfi.pdf",
+    file: "/public/guides/IFRS-9-Expected-Credit-Loss-Guide-for-DFIs.pdf",
     fileName: "IFRS 9 ECL Guide for Development Finance Institutions.pdf",
     fileSize: "0.8 MB",
   },
@@ -19,7 +19,7 @@ const pdfGuides: PdfGuide[] = [
     title: "IFRS 9 ECL Guide for Investment Finance Companies",
     description:
       "Practical implementation guide, industry best practices, and regulatory expectations for IFCs.",
-    file: "/guides/ifrs9-ecl-guide-ifc.pdf",
+    file: "/public/guides/IFRS-9-Expected-Credit-Loss-Guide-for-Investment-Finance-Companies.pdf",
     fileName: "IFRS 9 ECL Guide for Investment Finance Companies.pdf",
     fileSize: "0.9 MB",
   },
@@ -27,7 +27,7 @@ const pdfGuides: PdfGuide[] = [
     title: "IFRS 9 ECL Guide for Insurance Companies",
     description:
       "Practical implementation guide, industry best practices, and regulatory expectations for insurance companies.",
-    file: "/guides/ifrs9-ecl-guide-insurance.pdf",
+    file: "/public/guides/IFRS-9-Expected-Credit-Loss-Guide-for-Insurance-Companies.pdf",
     fileName: "IFRS 9 ECL Guide for Insurance Companies.pdf",
     fileSize: "0.7 MB",
   },
