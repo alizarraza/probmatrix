@@ -2,6 +2,7 @@ import { useState } from 'react'
 import PartnershipForm from '../components/forms/PartnershipForm'
 import Modal from '../components/Modal'
 import Toast from '../components/Toast'
+import { Helmet } from 'react-helmet-async';
 
 interface Benefit {
   title: string;
@@ -174,162 +175,170 @@ export default function Partnership(): JSX.Element {
   const [toastOpen, setToastOpen] = useState(false)
 
   return (
-    <div className="px-page">
-      <div className="px-glow" aria-hidden="true" />
+    <>
+      <Helmet>
+        <title>IFRS 9 Partnership Program | Risk & ECL Consulting Partners</title>
+        <meta
+          name="description"
+          content="Partner with ProbMatrix to deliver IFRS 9, ECL, credit risk and financial reporting solutions. Grow recurring revenue with expert support and training."
+        />
+      </Helmet>
+      <div className="px-page">
+        <div className="px-glow" aria-hidden="true" />
 
-      {/* Hero */}
-      <section className="px-hero">
-        <div className="px-container">
-          <span className="px-eyebrow">
-            <span className="px-eyebrow-dot" aria-hidden="true" />
-            Partnership Program
-          </span>
-          <h1 className="px-title">
-            Partner with Probmatrix — Elevate Your Clients' Financial Reporting
-          </h1>
+        {/* Hero */}
+        <section className="px-hero">
+          <div className="px-container">
+            <span className="px-eyebrow">
+              <span className="px-eyebrow-dot" aria-hidden="true" />
+              Partnership Program
+            </span>
+            <h1 className="px-title">
+             IFRS 9, Risk & ECL Partnership Program
+            </h1>
 
-          <p className="px-lead">
-            A partnership with Probmatrix is ideal for audit practices, risk
-            advisory firms, IFRS 9 consultants and our Certified
-            practitioners that serve financial institutions seeking to:
-          </p>
+            <p className="px-lead">
+              A partnership with Probmatrix is ideal for audit practices, risk
+              advisory firms, IFRS 9 consultants and our Certified
+              practitioners that serve financial institutions seeking to:
+            </p>
 
-          <ul className="px-checklist">
-            <li>Standardize and streamline IFRS 9 processes with transparent, auditor-ready evidence</li>
-            <li>Accelerate re-performance, overlays, recalibration, and quarterly ECL runs</li>
-            <li>Deliver implementation services with consistent, governed outputs</li>
-            <li>Maintain continuity and user adoption through Excel — the platform their teams already use daily</li>
-          </ul>
+            <ul className="px-checklist">
+              <li>Standardize and streamline IFRS 9 processes with transparent, auditor-ready evidence</li>
+              <li>Accelerate re-performance, overlays, recalibration, and quarterly ECL runs</li>
+              <li>Deliver implementation services with consistent, governed outputs</li>
+              <li>Maintain continuity and user adoption through Excel — the platform their teams already use daily</li>
+            </ul>
 
-          <p className="px-lead">
-            Generate recurring revenue through software resale and
-            implementation services, while positioning your firm as a
-            trusted provider of IFRS 9 excellence and operational
-            resilience.
-          </p>
+            <p className="px-lead">
+              Generate recurring revenue through software resale and
+              implementation services, while positioning your firm as a
+              trusted provider of IFRS 9 excellence and operational
+              resilience.
+            </p>
 
-          <div className="px-hero-actions">
+            <div className="px-hero-actions">
+              <button type="button" className="px-btn px-btn-primary" onClick={() => setApplyOpen(true)}>
+                Become a Partner <span aria-hidden="true">→</span>
+              </button>
+              <a className="px-btn px-btn-outline" href="/contact">
+                Book a 30-Minute Partner Demo
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Benefits */}
+        <section className="px-section px-section-alt">
+          <div className="px-container">
+            <div className="px-benefit-grid">
+              {benefits.map((b, i) => (
+                <div className="px-benefit-card" key={b.title}>
+                  <span className="px-benefit-icon">
+                    <BenefitIcon index={i} />
+                  </span>
+                  <h3 className="px-benefit-title">{b.title}</h3>
+                  <p className="px-benefit-description">{b.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Partner Program Tiers */}
+        <section className="px-section">
+          <div className="px-container">
+            <h2 className="px-section-title px-centered">Probmatrix Partner Program Tiers</h2>
+
+            <div className="px-tier-grid">
+              {tiers.map((tier) => (
+                <div className="px-tier-card" key={tier.key}>
+                  <span
+                    className="px-tier-icon"
+                    style={{ color: tier.accent, borderColor: `${tier.accent}55` }}
+                  >
+                    <TierIcon tierKey={tier.key} />
+                  </span>
+
+                  <h3 className="px-tier-name" style={{ color: tier.accent }}>
+                    {tier.name}
+                  </h3>
+
+                  <div className="px-tier-block">
+                    <span className="px-tier-label">Who it Suits</span>
+                    <p className="px-tier-text">{tier.whoItSuits}</p>
+                  </div>
+
+                  <div className="px-tier-block">
+                    <span className="px-tier-label">Key Benefits</span>
+                    <ul className="px-tier-list">
+                      {tier.keyBenefits.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="px-tier-block">
+                    <span className="px-tier-label">Commercials</span>
+                    <ul className="px-tier-list">
+                      {tier.commercials.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Become a Partner steps */}
+        <section className="px-cta-band">
+          <div className="px-container">
+            <h2 className="px-cta-title">Become a Partner</h2>
+            <p className="px-cta-lead">
+              Partners play a key role in helping clients accelerate success
+              through our focused solutions and collaborative go-to-market
+              approach. Please follow the steps below to become a partner:
+            </p>
+
+            <div className="px-steps">
+              {steps.map((step, i) => (
+                <div className="px-step" key={step.title}>
+                  <span className="px-step-number">{i + 1}</span>
+                  <div>
+                    <h3 className="px-step-title">{step.title}</h3>
+                    <p className="px-step-description">{step.description}</p>
+                  </div>
+                  {i < steps.length - 1 && <span className="px-step-arrow" aria-hidden="true">→</span>}
+                </div>
+              ))}
+            </div>
+
             <button type="button" className="px-btn px-btn-primary" onClick={() => setApplyOpen(true)}>
               Become a Partner <span aria-hidden="true">→</span>
             </button>
-            <a className="px-btn px-btn-outline" href="/contact">
-              Book a 30-Minute Partner Demo
-            </a>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Benefits */}
-      <section className="px-section px-section-alt">
-        <div className="px-container">
-          <div className="px-benefit-grid">
-            {benefits.map((b, i) => (
-              <div className="px-benefit-card" key={b.title}>
-                <span className="px-benefit-icon">
-                  <BenefitIcon index={i} />
-                </span>
-                <h3 className="px-benefit-title">{b.title}</h3>
-                <p className="px-benefit-description">{b.description}</p>
-              </div>
-            ))}
+        {/* Contact */}
+        <section className="px-section px-section-alt">
+          <div className="px-container px-contact">
+            <h2 className="px-section-title">Questions About the Program?</h2>
+            <div className="px-contact-actions">
+              <a className="px-btn px-btn-primary" href="mailto:info@probmatrix.io">
+                info@probmatrix.io
+              </a>
+              <a className="px-btn px-btn-outline" href="tel:+923365264744">
+                +92 336 5264744
+              </a>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Partner Program Tiers */}
-      <section className="px-section">
-        <div className="px-container">
-          <h2 className="px-section-title px-centered">Probmatrix Partner Program Tiers</h2>
-
-          <div className="px-tier-grid">
-            {tiers.map((tier) => (
-              <div className="px-tier-card" key={tier.key}>
-                <span
-                  className="px-tier-icon"
-                  style={{ color: tier.accent, borderColor: `${tier.accent}55` }}
-                >
-                  <TierIcon tierKey={tier.key} />
-                </span>
-
-                <h3 className="px-tier-name" style={{ color: tier.accent }}>
-                  {tier.name}
-                </h3>
-
-                <div className="px-tier-block">
-                  <span className="px-tier-label">Who it Suits</span>
-                  <p className="px-tier-text">{tier.whoItSuits}</p>
-                </div>
-
-                <div className="px-tier-block">
-                  <span className="px-tier-label">Key Benefits</span>
-                  <ul className="px-tier-list">
-                    {tier.keyBenefits.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="px-tier-block">
-                  <span className="px-tier-label">Commercials</span>
-                  <ul className="px-tier-list">
-                    {tier.commercials.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Become a Partner steps */}
-      <section className="px-cta-band">
-        <div className="px-container">
-          <h2 className="px-cta-title">Become a Partner</h2>
-          <p className="px-cta-lead">
-            Partners play a key role in helping clients accelerate success
-            through our focused solutions and collaborative go-to-market
-            approach. Please follow the steps below to become a partner:
-          </p>
-
-          <div className="px-steps">
-            {steps.map((step, i) => (
-              <div className="px-step" key={step.title}>
-                <span className="px-step-number">{i + 1}</span>
-                <div>
-                  <h3 className="px-step-title">{step.title}</h3>
-                  <p className="px-step-description">{step.description}</p>
-                </div>
-                {i < steps.length - 1 && <span className="px-step-arrow" aria-hidden="true">→</span>}
-              </div>
-            ))}
-          </div>
-
-          <button type="button" className="px-btn px-btn-primary" onClick={() => setApplyOpen(true)}>
-            Become a Partner <span aria-hidden="true">→</span>
-          </button>
-        </div>
-      </section>
-
-      {/* Contact */}
-      <section className="px-section px-section-alt">
-        <div className="px-container px-contact">
-          <h2 className="px-section-title">Questions About the Program?</h2>
-          <div className="px-contact-actions">
-            <a className="px-btn px-btn-primary" href="mailto:info@probmatrix.io">
-              info@probmatrix.io
-            </a>
-            <a className="px-btn px-btn-outline" href="tel:+923365264744">
-              +92 336 5264744
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap");
 
         .px-page {
@@ -740,18 +749,19 @@ export default function Partnership(): JSX.Element {
           }
         }
       `,
-        }}
-      />
-
-      <Modal open={applyOpen} onClose={() => setApplyOpen(false)} title="Collaborate With Us">
-        <PartnershipForm
-          onSuccess={() => {
-            setApplyOpen(false)
-            setToastOpen(true)
           }}
         />
-      </Modal>
-      <Toast message="Partnership application submitted!" show={toastOpen} onDone={() => setToastOpen(false)} />
-    </div>
+
+        <Modal open={applyOpen} onClose={() => setApplyOpen(false)} title="Collaborate With Us">
+          <PartnershipForm
+            onSuccess={() => {
+              setApplyOpen(false)
+              setToastOpen(true)
+            }}
+          />
+        </Modal>
+        <Toast message="Partnership application submitted!" show={toastOpen} onDone={() => setToastOpen(false)} />
+      </div>
+    </>
   );
 }

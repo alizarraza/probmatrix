@@ -2,10 +2,18 @@ import IndustriesWeServe from '../components/IndustriesWeServe'
 import Statistics from '../components/Statistics'
 import FinalCTA from '../components/FinalCTA'
 import { images, img } from '../content/images'
+import { Helmet } from 'react-helmet-async'
 
 export default function Industries() {
   return (
     <>
+     <Helmet>
+            <title>Financial Risk Management for Banks & Institutions | ProbMatrix</title>
+            <meta
+              name="description"
+              content="Financial risk management solutions for banks, MFIs, DFIs, NBFCs and insurers, covering credit risk, ECL modeling, regulatory reporting and risk validation."
+            />
+          </Helmet>
       <section
         style={{
           position: 'relative',
@@ -36,7 +44,7 @@ export default function Industries() {
 
         <div className="container" style={{ position: 'relative', maxWidth: 720 }}>
           <span className="section-eyebrow">Industries</span>
-          <h1 style={{ fontSize: 'clamp(30px, 4.4vw, 44px)' }}>Built for banks, MFIs, DFI, NBFCs, insurers, and advisors</h1>
+          <h1 style={{ fontSize: 'clamp(30px, 4.4vw, 44px)' }}>Financial Risk Management for Banks & Institutions</h1>
           <p style={{ marginTop: 20, fontSize: 16.5, color: 'var(--text-secondary)' }}>
             Faster closes for audit-ready Expected Credit Loss, wherever you sit in financial
             services.

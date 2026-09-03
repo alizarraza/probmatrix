@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import IFRS9Workflow from "../../components/IFRS9Workflow";
 import NativeExcelExperience from "../../components/Nativeexcelexperience";
@@ -497,218 +498,228 @@ export default function IfrsAddin(): JSX.Element {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
-    <div className="ia-page">
-      <div className="ia-glow" aria-hidden="true" />
+    <>
+      <Helmet>
+        <title>IFRS 9 Excel Add-In | ECL & Credit Risk Modelling Software</title>
+        <meta
+          name="description"
+          content="Automate IFRS 9 Expected Credit Loss calculations with the ProbMatrix Excel Add-In. Model PD, LGD, EAD, scenarios, staging and ECL with auditable results."
+        />
+      </Helmet>
 
-      {/* Intro */}
-      <section className="ia-hero">
-        <div className="ia-container ia-hero-grid">
-          <div className="ia-hero-text">
-            {/* <span className="ia-eyebrow">
+
+      <div className="ia-page">
+        <div className="ia-glow" aria-hidden="true" />
+
+        {/* Intro */}
+        <section className="ia-hero">
+          <div className="ia-container ia-hero-grid">
+            <div className="ia-hero-text">
+              {/* <span className="ia-eyebrow">
               <span className="ia-eyebrow-dot" aria-hidden="true" />
               Product
             </span> */}
-            <h1 className="ia-title">Probmatrix IFRS 9 Add-In</h1>
-            <p className="ia-description">
-              Automate the complete Expected Credit Loss process—from data
-              preparation and model calculations to forward-looking
-              scenarios, reporting and audit trails.
-            </p>
+              <h1 className="ia-title">IFRS 9 Excel Add-In Solutions</h1>
+              <p className="ia-description">
+                Automate the complete Expected Credit Loss process—from data
+                preparation and model calculations to forward-looking
+                scenarios, reporting and audit trails.
+              </p>
 
-            <div className="ia-hero-actions">
-  <button type="button" className="ia-btn ia-btn-primary" onClick={openDemoModal}>
-    Request a Demo <span aria-hidden="true">→</span>
-  </button>
-  {/* <a className="ia-btn ia-btn-outline" href="#editions">
+              <div className="ia-hero-actions">
+                <button type="button" className="ia-btn ia-btn-primary" onClick={openDemoModal}>
+                  Request a Demo <span aria-hidden="true">→</span>
+                </button>
+                {/* <a className="ia-btn ia-btn-outline" href="#editions">
     Compare Editions
   </a> */}
-  <a className="ia-btn ia-btn-outline" href="/ifrs9-add-in-brochure.pdf" download>
-    Download Add-In Brochure
-  </a>
-</div>
-          </div>
-
-          <div className="ia-hero-visual">
-            <ExcelIllustration />
-          </div>
-        </div>
-      </section>
-                <div className="container">
-                 <NativeExcelExperience />   
-                </div>
-
-                <div className="container">
-                    <IFRS9Workflow />
-                </div>
-
-
-      {/* Editions */}
-      <section className="ia-section" id="editions">
-        <div className="ia-container">
-          <h2 className="ia-section-title">Product Editions</h2>
-          <p className="ia-section-description">
-            Four editions, each scoped to how an institution actually
-            measures and reports credit risk.
-          </p>
-
-          <div className="ia-edition-grid">
-            {editions.map((edition, editionIndex) => (
-              <div className="ia-edition-card" key={edition.key}>
-                <span
-                  className="ia-edition-bar"
-                  style={{ background: edition.accent }}
-                  aria-hidden="true"
-                />
-
-                <span
-                  className="ia-edition-icon"
-                  style={{ color: edition.accent, background: `${edition.accent}1f` }}
-                >
-                  <EditionIcon editionKey={edition.key} />
-                </span>
-
-                <h3 className="ia-edition-name">{edition.name}</h3>
-                <div className="ia-edition-best-for">
-                  <span className="ia-edition-best-for-label">Best for</span>
-                  <span
-                    className="ia-edition-best-for-value"
-                    style={{ color: edition.accent }}
-                  >
-                    {edition.bestFor}
-                  </span>
-                </div>
-                <p className="ia-edition-description">{edition.description}</p>
-
-                <ul className="ia-edition-highlights">
-                  {HIGHLIGHT_DIMENSIONS.map((dimension) => (
-                    <li key={dimension}>
-                      <span className="ia-edition-highlight-label">{dimension}</span>
-                      <span className="ia-edition-highlight-value">
-                        {getFeatureValue(dimension, editionIndex)}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-
-                <a className="ia-edition-cta" href="#comparison">
-                  See full comparison <span aria-hidden="true">→</span>
+                <a className="ia-btn ia-btn-outline" href="/ifrs9-add-in-brochure.pdf" download>
+                  Download Add-In Brochure
                 </a>
               </div>
-            ))}
+            </div>
+
+            <div className="ia-hero-visual">
+              <ExcelIllustration />
+            </div>
           </div>
+        </section>
+        <div className="container">
+          <NativeExcelExperience />
         </div>
-      </section>
 
-      {/* Feature comparison matrix */}
-      <section className="ia-section ia-section-alt" id="comparison">
-        <div className="ia-container">
-          <h2 className="ia-section-title">Feature Comparison</h2>
-          <p className="ia-section-description">
-            A dimension-by-dimension breakdown of what each edition covers.
-          </p>
+        <div className="container">
+          <IFRS9Workflow />
+        </div>
 
-          <div className="ia-table-scroll">
-            <table className="ia-table">
-              <thead>
-                <tr>
-                  <th className="ia-table-dimension-head">Dimension</th>
-                  {editions.map((edition) => (
-                    <th key={edition.key}>
-                      <span
-                        className="ia-table-dot"
-                        style={{ background: edition.accent }}
-                        aria-hidden="true"
-                      />
-                      {edition.name.replace("IFRS 9 ", "")}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {featureMatrix.map((row) => (
-                  <tr key={row.dimension}>
-                    <th className="ia-table-dimension-cell">{row.dimension}</th>
-                    {row.values.map((value, i) => (
-                      <td
-                        key={i}
-                        className={MUTED_VALUES.has(value) ? "ia-muted" : ""}
-                      >
-                        {value}
-                      </td>
+
+        {/* Editions */}
+        <section className="ia-section" id="editions">
+          <div className="ia-container">
+            <h2 className="ia-section-title">Product Editions</h2>
+            <p className="ia-section-description">
+              Four editions, each scoped to how an institution actually
+              measures and reports credit risk.
+            </p>
+
+            <div className="ia-edition-grid">
+              {editions.map((edition, editionIndex) => (
+                <div className="ia-edition-card" key={edition.key}>
+                  <span
+                    className="ia-edition-bar"
+                    style={{ background: edition.accent }}
+                    aria-hidden="true"
+                  />
+
+                  <span
+                    className="ia-edition-icon"
+                    style={{ color: edition.accent, background: `${edition.accent}1f` }}
+                  >
+                    <EditionIcon editionKey={edition.key} />
+                  </span>
+
+                  <h3 className="ia-edition-name">{edition.name}</h3>
+                  <div className="ia-edition-best-for">
+                    <span className="ia-edition-best-for-label">Best for</span>
+                    <span
+                      className="ia-edition-best-for-value"
+                      style={{ color: edition.accent }}
+                    >
+                      {edition.bestFor}
+                    </span>
+                  </div>
+                  <p className="ia-edition-description">{edition.description}</p>
+
+                  <ul className="ia-edition-highlights">
+                    {HIGHLIGHT_DIMENSIONS.map((dimension) => (
+                      <li key={dimension}>
+                        <span className="ia-edition-highlight-label">{dimension}</span>
+                        <span className="ia-edition-highlight-value">
+                          {getFeatureValue(dimension, editionIndex)}
+                        </span>
+                      </li>
                     ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
+                  </ul>
 
-      {/* Key benefits */}
-      <section className="ia-section">
-        <div className="ia-container ia-benefits-grid">
-          <div className="ia-benefits-visual">
-            <SecurityIllustration />
-          </div>
-
-          <div className="ia-benefits-text">
-            <h2 className="ia-section-title">Key Benefits</h2>
-            <div className="ia-benefit-list">
-              {benefits.map((benefit) => (
-                <div className="ia-benefit-row" key={benefit.title}>
-                  <h3 className="ia-benefit-title">{benefit.title}</h3>
-                  <p className="ia-benefit-description">{benefit.description}</p>
+                  <a className="ia-edition-cta" href="#comparison">
+                    See full comparison <span aria-hidden="true">→</span>
+                  </a>
                 </div>
               ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* FAQ */}
-      <section className="ia-section ia-section-alt" id="faq">
-        <div className="ia-container ia-faq-container">
-          <h2 className="ia-section-title">Frequently Asked Questions</h2>
-          <p className="ia-section-description">
-            Answers to what teams most often ask before rolling out the IFRS 9 Add-In.
-          </p>
+        {/* Feature comparison matrix */}
+        <section className="ia-section ia-section-alt" id="comparison">
+          <div className="ia-container">
+            <h2 className="ia-section-title">Feature Comparison</h2>
+            <p className="ia-section-description">
+              A dimension-by-dimension breakdown of what each edition covers.
+            </p>
 
-          <div className="ia-faq-list">
-            {faqs.map((faq, i) => (
-              <FaqItem
-                key={faq.q}
-                faq={faq}
-                isOpen={openFaq === i}
-                onToggle={() => setOpenFaq(openFaq === i ? null : i)}
-              />
-            ))}
+            <div className="ia-table-scroll">
+              <table className="ia-table">
+                <thead>
+                  <tr>
+                    <th className="ia-table-dimension-head">Dimension</th>
+                    {editions.map((edition) => (
+                      <th key={edition.key}>
+                        <span
+                          className="ia-table-dot"
+                          style={{ background: edition.accent }}
+                          aria-hidden="true"
+                        />
+                        {edition.name.replace("IFRS 9 ", "")}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {featureMatrix.map((row) => (
+                    <tr key={row.dimension}>
+                      <th className="ia-table-dimension-cell">{row.dimension}</th>
+                      {row.values.map((value, i) => (
+                        <td
+                          key={i}
+                          className={MUTED_VALUES.has(value) ? "ia-muted" : ""}
+                        >
+                          {value}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Contact */}
-      <section className="ia-section ia-section-alt">
-        <div className="ia-container ia-contact">
-          <h2 className="ia-section-title">Talk to the Team</h2>
-          <p className="ia-section-description">
-            Questions about which edition fits your institution? Reach out
-            directly.
-          </p>
+        {/* Key benefits */}
+        <section className="ia-section">
+          <div className="ia-container ia-benefits-grid">
+            <div className="ia-benefits-visual">
+              <SecurityIllustration />
+            </div>
 
-          <div className="ia-contact-actions">
-            <a className="ia-btn ia-btn-primary" href="mailto:info@probmatrix.io">
-              info@probmatrix.io
-            </a>
-            <a className="ia-btn ia-btn-outline" href="tel:+923365264744">
-              +92 336 5264744
-            </a>
+            <div className="ia-benefits-text">
+              <h2 className="ia-section-title">Key Benefits</h2>
+              <div className="ia-benefit-list">
+                {benefits.map((benefit) => (
+                  <div className="ia-benefit-row" key={benefit.title}>
+                    <h3 className="ia-benefit-title">{benefit.title}</h3>
+                    <p className="ia-benefit-description">{benefit.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
+        {/* FAQ */}
+        <section className="ia-section ia-section-alt" id="faq">
+          <div className="ia-container ia-faq-container">
+            <h2 className="ia-section-title">Frequently Asked Questions</h2>
+            <p className="ia-section-description">
+              Answers to what teams most often ask before rolling out the IFRS 9 Add-In.
+            </p>
+
+            <div className="ia-faq-list">
+              {faqs.map((faq, i) => (
+                <FaqItem
+                  key={faq.q}
+                  faq={faq}
+                  isOpen={openFaq === i}
+                  onToggle={() => setOpenFaq(openFaq === i ? null : i)}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Contact */}
+        <section className="ia-section ia-section-alt">
+          <div className="ia-container ia-contact">
+            <h2 className="ia-section-title">Talk to the Team</h2>
+            <p className="ia-section-description">
+              Questions about which edition fits your institution? Reach out
+              directly.
+            </p>
+
+            <div className="ia-contact-actions">
+              <a className="ia-btn ia-btn-primary" href="mailto:info@probmatrix.io">
+                info@probmatrix.io
+              </a>
+              <a className="ia-btn ia-btn-outline" href="tel:+923365264744">
+                +92 336 5264744
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap");
 
         .ia-page {
@@ -1269,8 +1280,9 @@ export default function IfrsAddin(): JSX.Element {
           }
         }
       `,
-        }}
-      />
-    </div>
+          }}
+        />
+      </div>
+    </>
   );
 }

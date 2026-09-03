@@ -63,7 +63,7 @@ export const clientserved = [
 
 export const aboutTeaser = {
   eyebrow: 'About Us',
-  title: 'Technology-driven risk management, built by risk practitioners',
+  title: 'Best Risk Management Company & Consulting Firm',
   body:
     'ProbMatrix delivers technology-driven risk management solutions for enhanced operational efficiency and compliance in financial risk management processes. We combine deep risk-modeling expertise with practical automation — so financial institutions can move from manual, resource-intensive processes to fast, audit-ready, Automated workflows.',
   cta: 'Learn More About Us',

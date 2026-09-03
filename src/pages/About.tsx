@@ -1,3 +1,5 @@
+import { Helmet } from 'react-helmet-async'
+
 import { aboutPage, leadership } from '../content/siteContent'
 import Testimonials from '../components/Testimonials'
 import PartnershipCertification from '../components/PartnershipCertification'
@@ -7,6 +9,13 @@ import { IconCheckCircle, IconMail, IconPhone, IconUsers } from '../components/i
 export default function About() {
   return (
     <>
+      <Helmet>
+        <title>About Us | Risk Automation & Advisory Firm | ProbMatrix</title>
+        <meta
+          name="description"
+          content="ProbMatrix is a specialized risk automation and advisory firm providing regulatory consulting, risk modeling, advanced analytics, compliance, and model validation."
+        />
+      </Helmet>
       <section
         style={{
           padding: '90px 0 70px',
@@ -22,76 +31,76 @@ export default function About() {
       </section>
 
       {/* Vision & Mission */}
-<section className="section" style={{ paddingTop: 0 }}>
-  <div className="container">
-    <div
-      className="grid-2 mission-grid"
-      style={{ alignItems: "stretch", gap: 24 }}
-    >
-      {/* Vision */}
-      <div className="card glow-border">
-        <span className="section-eyebrow">Our Vision</span>
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="container">
+          <div
+            className="grid-2 mission-grid"
+            style={{ alignItems: "stretch", gap: 24 }}
+          >
+            {/* Vision */}
+            <div className="card glow-border">
+              <span className="section-eyebrow">Our Vision</span>
 
-        <h3
-          style={{
-            margin: "12px 0 18px",
-            fontSize: 28,
-            lineHeight: 1.3,
-            color: "#fff",
-            fontWeight: 600,
-          }}
-        >
-          Empowering Financial Institutions with Transparent Risk Intelligence
-        </h3>
+              <h3
+                style={{
+                  margin: "12px 0 18px",
+                  fontSize: 28,
+                  lineHeight: 1.3,
+                  color: "#fff",
+                  fontWeight: 600,
+                }}
+              >
+                Empowering Financial Institutions with Transparent Risk Intelligence
+              </h3>
 
-        <p
-          style={{
-            fontSize: 16,
-            lineHeight: 1.8,
-            color: "var(--text-secondary)",
-            margin: 0,
-          }}
-        >
-          {aboutPage.vision}
-        </p>
-      </div>
+              <p
+                style={{
+                  fontSize: 16,
+                  lineHeight: 1.8,
+                  color: "var(--text-secondary)",
+                  margin: 0,
+                }}
+              >
+                {aboutPage.vision}
+              </p>
+            </div>
 
-      {/* Mission */}
-      <div className="card">
-        <span className="section-eyebrow">Our Mission</span>
+            {/* Mission */}
+            <div className="card">
+              <span className="section-eyebrow">Our Mission</span>
 
-        <p
-          style={{
-            marginTop: 16,
-            marginBottom: 22,
-            fontSize: 16,
-            lineHeight: 1.8,
-            color: "var(--text-secondary)",
-          }}
-        >
-          {aboutPage.mission}
-        </p>
+              <p
+                style={{
+                  marginTop: 16,
+                  marginBottom: 22,
+                  fontSize: 16,
+                  lineHeight: 1.8,
+                  color: "var(--text-secondary)",
+                }}
+              >
+                {aboutPage.mission}
+              </p>
 
-        <ul
-          style={{
-            listStyle: "none",
-            padding: 0,
-            margin: 0,
-            display: "flex",
-            flexDirection: "column",
-            gap: 16,
-          }}
-        >
-          {aboutPage.missionPoints.map((point) => (
-            <li
-              key={point}
-              style={{
-                display: "flex",
-                alignItems: "flex-start",
-                gap: 12,
-              }}
-            >
-              {/* <IconCheckCircle
+              <ul
+                style={{
+                  listStyle: "none",
+                  padding: 0,
+                  margin: 0,
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 16,
+                }}
+              >
+                {aboutPage.missionPoints.map((point) => (
+                  <li
+                    key={point}
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: 12,
+                    }}
+                  >
+                    {/* <IconCheckCircle
                 size={18}
                 style={{
                   color: "var(--accent)",
@@ -100,35 +109,35 @@ export default function About() {
                 }}
               /> */}
 
-              <span
-                style={{
-                  fontSize: 15,
-                  lineHeight: 1.7,
-                  color: "var(--text-secondary)",
-                }}
-              >
-                {point}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+                    <span
+                      style={{
+                        fontSize: 15,
+                        lineHeight: 1.7,
+                        color: "var(--text-secondary)",
+                      }}
+                    >
+                      {point}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
 
-    <p
-      style={{
-        marginTop: 36,
-        maxWidth: 850,
-        fontSize: 16,
-        lineHeight: 1.8,
-        color: "var(--text-secondary)",
-      }}
-    >
-      {aboutPage.approachIntro}
-    </p>
-  </div>
+          <p
+            style={{
+              marginTop: 36,
+              maxWidth: 850,
+              fontSize: 16,
+              lineHeight: 1.8,
+              color: "var(--text-secondary)",
+            }}
+          >
+            {aboutPage.approachIntro}
+          </p>
+        </div>
 
-  <style>{`
+        <style>{`
     .mission-grid {
       align-items: stretch;
     }
@@ -139,7 +148,7 @@ export default function About() {
       }
     }
   `}</style>
-</section>
+      </section>
 
       {/* Capabilities */}
       <section className="section" style={{ background: 'var(--bg-secondary)' }}>
@@ -197,7 +206,7 @@ export default function About() {
           }
         `}</style>
       </section>
-{/* Location */}
+      {/* Location */}
       <section className="section" style={{ background: 'var(--bg-secondary)' }}>
         <div className="container">
           <div className="section-header">
@@ -226,7 +235,7 @@ export default function About() {
             <div className="card" style={{ padding: 0, overflow: 'hidden', minHeight: 280 }}>
               <iframe
                 title="ProbMatrix Office Location"
-                src="https://www.google.com/maps?q=Office+%23+804,+8th+floor,+Landmark+plaza,+Karachi,+Pakistan&output=embed"                width="100%"
+                src="https://www.google.com/maps?q=Office+%23+804,+8th+floor,+Landmark+plaza,+Karachi,+Pakistan&output=embed" width="100%"
                 height="100%"
                 style={{ border: 0, minHeight: 280, display: 'block' }}
                 allowFullScreen

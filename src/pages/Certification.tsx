@@ -2,6 +2,7 @@ import { useState } from 'react'
 import EnrollmentForm from '../components/forms/EnrollmentForm'
 import Modal from '../components/Modal'
 import Toast from '../components/Toast'
+import { Helmet } from 'react-helmet-async';
 
 const expertiseItems: string[] = [
   "Setting up and configuring the IFRS 9 Add-In",
@@ -128,179 +129,188 @@ export default function Certification(): JSX.Element {
   const [toastOpen, setToastOpen] = useState(false)
 
   return (
-    <div className="ct-page">
-      <div className="ct-glow" aria-hidden="true" />
+    <>
+      <Helmet>
+        <title>IFRS 9 Certification Program | ECL & Risk Analytics | ProbMatrix</title>
+        <meta
+          name="description"
+          content="Earn IFRS 9 certification with practical training in ECL, PD, LGD, EAD, SICR, risk modelling and Excel-based automation. Build expertise and career growth."
+        />
+      </Helmet>
 
-      {/* Hero */}
-      <section className="ct-hero">
-        <div className="ct-container ct-hero-grid">
-          <div>
-            <span className="ct-eyebrow">
-              <span className="ct-eyebrow-dot" aria-hidden="true" />
-              Certification Program
-            </span>
-            <h1 className="ct-title">Comprehensive Guide to IFRS 9 Implementation</h1>
-            <p className="ct-lead">
-              Take your IFRS 9 knowledge to the next level with the IFRS 9
-              Add-In Certification Program — designed for professionals who
-              want to apply IFRS 9 through technology.
-            </p>
-            <p className="ct-lead">
-              This program validates your ability to use the IFRS 9 Add-In
-              effectively for ECL computation, modeling, and reporting — the
-              same tool used by financial institutions, auditors, and
-              consulting teams.
-            </p>
-            <button type="button" className="ct-btn ct-btn-primary" onClick={() => setEnrollOpen(true)}>
-              Enroll Now <span aria-hidden="true">→</span>
-            </button>
-          </div>
+      <div className="ct-page">
+        <div className="ct-glow" aria-hidden="true" />
 
-          <div className="ct-hero-visual">
-            <LaunchIllustration />
-          </div>
-        </div>
-      </section>
-
-      {/* Certification Overview */}
-      <section className="ct-section ct-section-alt">
-        <div className="ct-container">
-          <h2 className="ct-section-title ct-centered">Certification Overview</h2>
-
-          <div className="ct-overview-grid">
-            <div className="ct-overview-visual">
-              <HandshakeIllustration />
+        {/* Hero */}
+        <section className="ct-hero">
+          <div className="ct-container ct-hero-grid">
+            <div>
+              <span className="ct-eyebrow">
+                <span className="ct-eyebrow-dot" aria-hidden="true" />
+                Certification Program
+              </span>
+              <h1 className="ct-title">IFRS 9 Certification Program</h1>
+              <p className="ct-lead">
+                Take your IFRS 9 knowledge to the next level with the IFRS 9
+                Add-In Certification Program — designed for professionals who
+                want to apply IFRS 9 through technology.
+              </p>
+              <p className="ct-lead">
+                This program validates your ability to use the IFRS 9 Add-In
+                effectively for ECL computation, modeling, and reporting — the
+                same tool used by financial institutions, auditors, and
+                consulting teams.
+              </p>
+              <button type="button" className="ct-btn ct-btn-primary" onClick={() => setEnrollOpen(true)}>
+                Enroll Now <span aria-hidden="true">→</span>
+              </button>
             </div>
 
+            <div className="ct-hero-visual">
+              <LaunchIllustration />
+            </div>
+          </div>
+        </section>
+
+        {/* Certification Overview */}
+        <section className="ct-section ct-section-alt">
+          <div className="ct-container">
+            <h2 className="ct-section-title ct-centered">Certification Overview</h2>
+
+            <div className="ct-overview-grid">
+              <div className="ct-overview-visual">
+                <HandshakeIllustration />
+              </div>
+
+              <div>
+                <h3 className="ct-overview-subtitle">Gain practical expertise in:</h3>
+                <ul className="ct-list">
+                  {expertiseItems.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <p className="ct-overview-close">
+                  This certification ensures you can <strong>implement IFRS 9 efficiently in Excel</strong>, with technology that simplifies complexity.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Why Get Certified */}
+        <section className="ct-why-band">
+          <div className="ct-container">
+            <h2 className="ct-why-title ct-centered">Why Get Certified</h2>
+
+            <div className="ct-why-grid">
+              {whyItems.map((item) => (
+                <div className="ct-why-item" key={item.text}>
+                  <span className="ct-why-check">
+                    <CheckIcon />
+                  </span>
+                  <p className="ct-why-text">{item.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Discover Partnership Potential */}
+        <section className="ct-section">
+          <div className="ct-container ct-partnership-grid">
             <div>
-              <h3 className="ct-overview-subtitle">Gain practical expertise in:</h3>
+              <h2 className="ct-section-title">Discover Partnership Potential</h2>
+              <p className="ct-lead">
+                Certified users are eligible for our Partnership Program,
+                enabling professionals to collaborate with us in delivering
+                IFRS 9 and risk analytics solutions.
+              </p>
+
+              <h3 className="ct-overview-subtitle">As a partner, you'll gain:</h3>
               <ul className="ct-list">
-                {expertiseItems.map((item) => (
+                {partnerGains.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-              <p className="ct-overview-close">
-                This certification ensures you can <strong>implement IFRS 9 efficiently in Excel</strong>, with technology that simplifies complexity.
+
+              <p className="ct-lead">
+                Your certification becomes more than a badge — it's your
+                gateway to collaboration and growth.
               </p>
+
+              <a className="ct-btn ct-btn-outline" href="/partnership">
+                Partnership Program <span aria-hidden="true">→</span>
+              </a>
+            </div>
+
+            <div className="ct-partnership-visual">
+              <svg viewBox="0 0 240 240" role="img" aria-label="Illustration representing collaboration and network growth through the partnership program">
+                <circle cx="120" cy="120" r="110" fill="rgba(59,158,234,0.08)" />
+                <circle cx="120" cy="120" r="78" fill="rgba(59,158,234,0.07)" />
+                <g stroke="#3b9eea" strokeWidth="1.6" fill="none" strokeLinecap="round">
+                  <circle cx="120" cy="70" r="5" />
+                  <circle cx="80" cy="150" r="5" />
+                  <circle cx="160" cy="150" r="5" />
+                  <circle cx="120" cy="120" r="6" fill="#3b9eea" />
+                  <path d="M120 76v38M84 146l30-22M156 146l-30-22" />
+                </g>
+              </svg>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Why Get Certified */}
-      <section className="ct-why-band">
-        <div className="ct-container">
-          <h2 className="ct-why-title ct-centered">Why Get Certified</h2>
+        {/* Who Should Enroll */}
+        <section className="ct-section ct-section-alt">
+          <div className="ct-container">
+            <h2 className="ct-section-title ct-centered">Who Should Enroll</h2>
 
-          <div className="ct-why-grid">
-            {whyItems.map((item) => (
-              <div className="ct-why-item" key={item.text}>
-                <span className="ct-why-check">
-                  <CheckIcon />
-                </span>
-                <p className="ct-why-text">{item.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Discover Partnership Potential */}
-      <section className="ct-section">
-        <div className="ct-container ct-partnership-grid">
-          <div>
-            <h2 className="ct-section-title">Discover Partnership Potential</h2>
-            <p className="ct-lead">
-              Certified users are eligible for our Partnership Program,
-              enabling professionals to collaborate with us in delivering
-              IFRS 9 and risk analytics solutions.
-            </p>
-
-            <h3 className="ct-overview-subtitle">As a partner, you'll gain:</h3>
-            <ul className="ct-list">
-              {partnerGains.map((item) => (
-                <li key={item}>{item}</li>
+            <div className="ct-audience-list">
+              {audiences.map((a) => (
+                <div className="ct-audience-row" key={a}>
+                  {a}
+                </div>
               ))}
-            </ul>
-
-            <p className="ct-lead">
-              Your certification becomes more than a badge — it's your
-              gateway to collaboration and growth.
-            </p>
-
-            <a className="ct-btn ct-btn-outline" href="/partnership">
-              Partnership Program <span aria-hidden="true">→</span>
-            </a>
+            </div>
           </div>
+        </section>
 
-          <div className="ct-partnership-visual">
-            <svg viewBox="0 0 240 240" role="img" aria-label="Illustration representing collaboration and network growth through the partnership program">
-              <circle cx="120" cy="120" r="110" fill="rgba(59,158,234,0.08)" />
-              <circle cx="120" cy="120" r="78" fill="rgba(59,158,234,0.07)" />
-              <g stroke="#3b9eea" strokeWidth="1.6" fill="none" strokeLinecap="round">
-                <circle cx="120" cy="70" r="5" />
-                <circle cx="80" cy="150" r="5" />
-                <circle cx="160" cy="150" r="5" />
-                <circle cx="120" cy="120" r="6" fill="#3b9eea" />
-                <path d="M120 76v38M84 146l30-22M156 146l-30-22" />
-              </g>
-            </svg>
+        {/* What You'll Receive */}
+        <section className="ct-receive-band">
+          <NetworkBackdrop />
+          <div className="ct-container ct-receive-grid">
+            <div className="ct-receive-panel">
+              <h2 className="ct-receive-title">What You'll Receive</h2>
+              <ul className="ct-list ct-list-light">
+                {receiveItems.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+
+            <button type="button" className="ct-btn ct-btn-primary ct-receive-cta" onClick={() => setEnrollOpen(true)}>
+              Enroll Now <span aria-hidden="true">→</span>
+            </button>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Who Should Enroll */}
-      <section className="ct-section ct-section-alt">
-        <div className="ct-container">
-          <h2 className="ct-section-title ct-centered">Who Should Enroll</h2>
-
-          <div className="ct-audience-list">
-            {audiences.map((a) => (
-              <div className="ct-audience-row" key={a}>
-                {a}
-              </div>
-            ))}
+        {/* Contact */}
+        <section className="ct-section">
+          <div className="ct-container ct-contact">
+            <h2 className="ct-section-title">Questions About Certification?</h2>
+            <div className="ct-contact-actions">
+              <a className="ct-btn ct-btn-primary" href="mailto:info@probmatrix.io">
+                info@probmatrix.io
+              </a>
+              <a className="ct-btn ct-btn-outline" href="tel:+923365264744">
+                +92 336 5264744
+              </a>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* What You'll Receive */}
-      <section className="ct-receive-band">
-        <NetworkBackdrop />
-        <div className="ct-container ct-receive-grid">
-          <div className="ct-receive-panel">
-            <h2 className="ct-receive-title">What You'll Receive</h2>
-            <ul className="ct-list ct-list-light">
-              {receiveItems.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
-
-          <button type="button" className="ct-btn ct-btn-primary ct-receive-cta" onClick={() => setEnrollOpen(true)}>
-            Enroll Now <span aria-hidden="true">→</span>
-          </button>
-        </div>
-      </section>
-
-      {/* Contact */}
-      <section className="ct-section">
-        <div className="ct-container ct-contact">
-          <h2 className="ct-section-title">Questions About Certification?</h2>
-          <div className="ct-contact-actions">
-            <a className="ct-btn ct-btn-primary" href="mailto:info@probmatrix.io">
-              info@probmatrix.io
-            </a>
-            <a className="ct-btn ct-btn-outline" href="tel:+923365264744">
-              +92 336 5264744
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap");
 
         .ct-page {
@@ -686,18 +696,19 @@ export default function Certification(): JSX.Element {
           }
         }
       `,
-        }}
-      />
-
-      <Modal open={enrollOpen} onClose={() => setEnrollOpen(false)} title="Enrollment Form">
-        <EnrollmentForm
-          onSuccess={() => {
-            setEnrollOpen(false)
-            setToastOpen(true)
           }}
         />
-      </Modal>
-      <Toast message="Enrollment submitted!" show={toastOpen} onDone={() => setToastOpen(false)} />
-    </div>
+
+        <Modal open={enrollOpen} onClose={() => setEnrollOpen(false)} title="Enrollment Form">
+          <EnrollmentForm
+            onSuccess={() => {
+              setEnrollOpen(false)
+              setToastOpen(true)
+            }}
+          />
+        </Modal>
+        <Toast message="Enrollment submitted!" show={toastOpen} onDone={() => setToastOpen(false)} />
+      </div>
+    </>
   );
 }

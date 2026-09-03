@@ -1,0 +1,114 @@
+# ProbMatrix
+
+> ProbMatrix provides technology-driven risk management solutions, IFRS 9 automation, Expected Credit Loss (ECL) modelling support, risk modelling, model validation, stress testing, and risk management consulting for financial institutions and advisors.
+
+## Primary Website
+
+- Homepage: https://probmatrix.io/
+- About Us: https://probmatrix.io/about
+- Services: https://probmatrix.io/services
+- Industries: https://probmatrix.io/industries
+- Insights: https://probmatrix.io/insights
+- Partnership: https://probmatrix.io/partnership
+- Certification: https://probmatrix.io/certification
+- Contact / Demo: https://probmatrix.io/contact
+
+## Core Solutions and Services
+
+### IFRS 9 Excel Add-In
+Excel-native IFRS 9 and credit risk management Add-In designed to automate Expected Credit Loss calculations and support audit-ready workflows.
+
+Key capabilities and concepts:
+- PD (Probability of Default)
+- LGD (Loss Given Default)
+- EAD (Exposure at Default)
+- ECL (Expected Credit Loss)
+- Macroeconomic scenarios
+- IFRS 9 calculations and modelling
+- Automated reporting and governance workflows
+- Excel-based interface
+- On-premise operation
+
+### Risk Modeling Solutions
+Ready-made risk modelling solutions intended to improve compliance and operational efficiency.
+
+### Expected Credit Loss & Compliance
+Expert guidance for ECL calculations and regulatory compliance for financial institutions.
+
+### Risk Automation Services
+Automation services focused on reducing manual input, improving accuracy, and streamlining financial risk management processes.
+
+### Model Validation & Stress Testing
+Model validation and stress testing services designed to assess reliability, compliance, and performance of risk models.
+
+### Risk Management Consulting
+Custom risk management and advisory services for financial institutions and risk teams.
+
+## Target Industries
+
+ProbMatrix serves:
+- Commercial Banks
+- Microfinance Institutions (MFIs)
+- Development Finance Institutions (DFIs)
+- Non-Banking Financial Companies (NBFCs)
+- Insurers
+- Advisors and Consultants
+
+## Key Product Differentiators
+
+- Runs fully on-premise for day-to-day use; no internet connection is required for normal operation.
+- Works inside Microsoft Excel through a user-friendly, form-based interface.
+- Automates IFRS 9 workflows involving PD, LGD, EAD, ECL, and macroeconomic scenarios.
+- Supports audit-ready workflows and faster reporting cycles.
+- Designed by risk practitioners with practical IFRS 9 implementation experience.
+- Helps teams review, challenge, and validate assumptions without rebuilding complex models from scratch.
+
+## Company Positioning
+
+ProbMatrix combines risk-modelling expertise with practical automation to help financial institutions move from manual, resource-intensive processes toward faster, structured, and audit-ready risk management workflows.
+
+## Important Website Claims
+
+- 20+ clients served
+- 5+ partners
+- 200+ professionals using CredX
+- Technology-driven risk management solutions
+- Enterprise-grade IFRS 9 solutions
+- On-premise financial risk management workflows
+
+## Related Product
+
+### CredX
+CredX is referenced by ProbMatrix as a credit risk model validation and calibration tool for consultants, finance teams, validation teams, and risk professionals.
+
+## Frequently Asked Topics
+
+Useful topics for understanding or retrieving information about ProbMatrix include:
+- IFRS 9 implementation
+- Expected Credit Loss (ECL)
+- Credit risk modelling
+- PD, LGD, EAD
+- Macroeconomic scenarios
+- IFRS 9 compliance
+- Model validation
+- Model calibration
+- Stress testing
+- Risk management automation
+- Audit-ready reporting
+- Financial risk governance
+- On-premise risk management software
+- IFRS 9 Excel Add-In
+- CredX
+
+## Site Navigation
+
+Use the XML sitemap as the authoritative URL inventory:
+https://probmatrix.io/sitemap.xml
+
+Review crawling directives in:
+https://probmatrix.io/robots.txt
+
+## Contact
+
+Email: info@probmatrix.io
+Phone: +92 336 5264744

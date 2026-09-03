@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 /* ---------------------------------------------------------------- */
 /*  Data                                                              */
@@ -550,366 +551,376 @@ export default function CredX(): JSX.Element {
   const currentCategory = toolCategories.find((c) => c.id === activeCategory) ?? toolCategories[0];
 
   return (
-    <div className="cx-page">
-      <div className="cx-glow" aria-hidden="true" />
-      <div className="cx-glow cx-glow-2" aria-hidden="true" />
+    <>
+      <Helmet>
+        <title>Credit Risk Model Validation & Calibration Tool | CredX</title>
+        <meta
+          name="description"
+          content="CredX is an Excel-based toolkit for credit risk model validation, calibration, testing and audit support for IFRS 9 professionals, consultants and auditors."
+        />
+      </Helmet>
 
-      {/* Hero — rebuilt as a two-column layout (text + visual), matching
+
+      <div className="cx-page">
+        <div className="cx-glow" aria-hidden="true" />
+        <div className="cx-glow cx-glow-2" aria-hidden="true" />
+
+        {/* Hero — rebuilt as a two-column layout (text + visual), matching
           the IFRS 9 Add-In page's hero design. */}
-      <section className="cx-hero">
-        <div className="cx-container cx-hero-grid">
-          <div className="cx-hero-text">
-            <span className="cx-eyebrow cx-anim cx-anim-1">
-              <span className="cx-eyebrow-dot" aria-hidden="true" />
-              CredX
-            </span>
-            <h1 className="cx-title cx-anim cx-anim-2">Validate. Calibrate. Audit Credit Risk Models.</h1>
-            <p className="cx-lead cx-anim cx-anim-3">
-              CredX is a validation and calibration toolkit for IFRS 9 and credit risk models.
-            </p>
-            <p className="cx-description cx-anim cx-anim-4">
-              Designed for model validation teams, consultants, and external audit professionals.
-            </p>
-
-            <div className="cx-hero-actions cx-anim cx-anim-5">
-              <a className="cx-btn cx-btn-primary" href="#pricing">
-                See Pricing <span className="cx-btn-arrow" aria-hidden="true">→</span>
-              </a>
-              <a className="cx-btn cx-btn-outline" href="#tools">
-                Explore Tools
-              </a>
-            </div>
-          </div>
-
-          <div className="cx-hero-visual cx-anim cx-anim-5">
-            <CredXIllustration />
-          </div>
-        </div>
-      </section>
-
-      {/* Positioning */}
-      <section className="cx-section cx-section-alt">
-        <div className="cx-container">
-          <div className="cx-positioning">
-            <div className="cx-reveal">
-              <h2 className="cx-section-title">Model Validation Without Spreadsheet Chaos</h2>
-              <p className="cx-body-text">
-                Credit risk model validation often involves disconnected spreadsheets, manually
-                developed tests, and inconsistent calculations.
+        <section className="cx-hero">
+          <div className="cx-container cx-hero-grid">
+            <div className="cx-hero-text">
+              <span className="cx-eyebrow cx-anim cx-anim-1">
+                <span className="cx-eyebrow-dot" aria-hidden="true" />
+                CredX
+              </span>
+              <h1 className="cx-title cx-anim cx-anim-2">Credit Risk Model Validation & Calibration Tool</h1>
+              <p className="cx-lead cx-anim cx-anim-3">
+                CredX is a validation and calibration toolkit for IFRS 9 and credit risk models.
               </p>
-              <p className="cx-body-text">
-                CredX provides an environment within Microsoft Excel for validating and
-                calibrating IFRS 9 and credit risk models. It helps users perform model testing
-                more consistently, investigate exceptions, compare model outcomes, and generate
-                evidence that can support validation, governance, and audit procedures.
+              <p className="cx-description cx-anim cx-anim-4">
+                Designed for model validation teams, consultants, and external audit professionals.
               </p>
-            </div>
 
-            <div className="cx-sits-between cx-reveal">
-              <span className="cx-sits-between-label">CredX sits between</span>
-              <div className="cx-sits-between-row">
-                <div className="cx-sits-between-item">Manually developed Excel testing files</div>
-                <span className="cx-sits-between-arrow" aria-hidden="true">↔</span>
-                <div className="cx-sits-between-item cx-sits-between-highlight">CredX</div>
-                <span className="cx-sits-between-arrow" aria-hidden="true">↔</span>
-                <div className="cx-sits-between-item">Highly technical statistical software</div>
-              </div>
-              <p className="cx-body-text cx-sits-between-note">
-                …and large enterprise model-risk platforms — combining the familiarity of Excel
-                with a structured credit risk validation framework.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Who CredX Is For */}
-      <section className="cx-section">
-        <div className="cx-container">
-          <h2 className="cx-section-title cx-centered cx-reveal">Who CredX Is For</h2>
-          <div className="cx-audience-grid">
-            {audiences.map((a, i) => (
-              <div className="cx-card cx-reveal" style={{ transitionDelay: `${i * 60}ms` }} key={a.key}>
-                <h3 className="cx-card-title">{a.title}</h3>
-                <p className="cx-card-desc">{a.desc}</p>
-                <span className="cx-label">Suitable for</span>
-                <ul className="cx-tag-list">
-                  {a.suitableFor.map((role) => (
-                    <li key={role}>{role}</li>
-                  ))}
-                </ul>
-                {a.note && <p className="cx-note">{a.note}</p>}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Tools Explorer */}
-      <section className="cx-section cx-section-alt" id="tools">
-        <div className="cx-container">
-          <h2 className="cx-section-title cx-centered cx-reveal">CredX Tools</h2>
-          <p className="cx-section-description cx-centered cx-reveal">
-            Twenty calibration and validation tools across seven categories, covering the full
-            IFRS 9 model lifecycle from PD calibration through PiT LGD validation.
-          </p>
-
-          <div className="cx-tab-row" role="tablist">
-            {toolCategories.map((cat) => (
-              <button
-                key={cat.id}
-                role="tab"
-                aria-selected={activeCategory === cat.id}
-                className={`cx-tab ${activeCategory === cat.id ? "cx-tab-active" : ""}`}
-                onClick={() => setActiveCategory(cat.id)}
-              >
-                {cat.label}
-              </button>
-            ))}
-          </div>
-
-          <div className="cx-tool-grid" key={activeCategory}>
-            {currentCategory.tools.map((tool, i) => (
-              <div className="cx-card cx-tool-card cx-fade-in" style={{ animationDelay: `${i * 70}ms` }} key={tool.name}>
-                <h3 className="cx-card-title">{tool.name}</h3>
-                <p className="cx-card-desc">{tool.desc}</p>
-                <span className="cx-label">Can support</span>
-                <ul className="cx-bullet-list">
-                  {tool.supports.map((s) => (
-                    <li key={s}>{s}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Use CredX */}
-      <section className="cx-section">
-        <div className="cx-container">
-          <h2 className="cx-section-title cx-centered cx-reveal">Why Use CredX?</h2>
-          <div className="cx-benefit-grid">
-            {benefits.map((b, i) => (
-              <div className="cx-card cx-reveal" style={{ transitionDelay: `${i * 50}ms` }} key={b.title}>
-                <h3 className="cx-card-title">{b.title}</h3>
-                <p className="cx-card-desc">{b.desc}</p>
-                {b.extra && (
-                  <ul className="cx-bullet-list">
-                    {b.extra.map((e) => (
-                      <li key={e}>{e}</li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Buying Options */}
-      <section className="cx-section cx-section-alt" id="pricing">
-        <div className="cx-container">
-          <h2 className="cx-section-title cx-centered cx-reveal">Buying Options</h2>
-          <p className="cx-section-description cx-centered cx-reveal">
-            CredX is available under two principal licence options.
-          </p>
-
-          <div className="cx-billing-toggle">
-            <span
-              className="cx-billing-thumb"
-              style={{ transform: billing === "monthly" ? "translateX(0%)" : "translateX(100%)" }}
-              aria-hidden="true"
-            />
-            <button
-              className={`cx-billing-btn ${billing === "monthly" ? "cx-billing-btn-active" : ""}`}
-              onClick={() => setBilling("monthly")}
-            >
-              Monthly
-            </button>
-            <button
-              className={`cx-billing-btn ${billing === "yearly" ? "cx-billing-btn-active" : ""}`}
-              onClick={() => setBilling("yearly")}
-            >
-              Yearly
-            </button>
-          </div>
-
-          <div className="cx-plan-grid">
-            {plans.map((plan) => (
-              <div
-                className={`cx-plan-card ${plan.highlighted ? "cx-plan-card-highlighted" : ""}`}
-                key={plan.key}
-              >
-                {plan.highlighted && <span className="cx-plan-badge">Most Popular</span>}
-                <h3 className="cx-plan-name">{plan.name}</h3>
-                <p className="cx-plan-audience">{plan.audience}</p>
-
-                <div className="cx-plan-price">
-                  <span className="cx-plan-price-value" key={billing}>
-                    {billing === "monthly" ? plan.priceMonthly : plan.priceYearly}
-                  </span>
-                  <span className="cx-plan-price-period">
-                    /{billing === "monthly" ? "month" : "year"}/user
-                  </span>
-                </div>
-
-                <p className="cx-card-desc">{plan.desc}</p>
-
-                <span className="cx-label">Usage allowance</span>
-                <ul className="cx-bullet-list">
-                  {plan.usage.map((u) => (
-                    <li key={u}>{u}</li>
-                  ))}
-                </ul>
-
-                <span className="cx-label">License features</span>
-                <ul className="cx-bullet-list">
-                  {plan.features.map((f) => (
-                    <li key={f}>{f}</li>
-                  ))}
-                </ul>
-
-                <p className="cx-plan-tools-note">
-                  Includes all 20 CredX calibration and validation tools — see{" "}
-                  <a href="#tools">CredX Tools</a>.
-                </p>
-
-                <a
-                  className={`cx-btn ${plan.highlighted ? "cx-btn-primary" : "cx-btn-outline"} cx-plan-cta`}
-                  href="/contact"
-                >
-                  Coming soon<span className="cx-btn-arrow" aria-hidden="true">→</span>
+              <div className="cx-hero-actions cx-anim cx-anim-5">
+                <a className="cx-btn cx-btn-primary" href="#pricing">
+                  See Pricing <span className="cx-btn-arrow" aria-hidden="true">→</span>
+                </a>
+                <a className="cx-btn cx-btn-outline" href="#tools">
+                  Explore Tools
                 </a>
               </div>
-            ))}
-          </div>
-
-          <div className="cx-table-scroll cx-reveal">
-            <table className="cx-table">
-              <thead>
-                <tr>
-                  <th>Feature</th>
-                  <th>CredX Professional</th>
-                  <th>CredX Team</th>
-                </tr>
-              </thead>
-              <tbody>
-                {comparisonRows.map((row) => (
-                  <tr key={row.feature}>
-                    <th>{row.feature}</th>
-                    <td className={row.professional.startsWith("Not") || row.professional === "No" ? "cx-muted" : ""}>
-                      {row.professional}
-                    </td>
-                    <td>{row.team}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* Refund & Cancellation Policy — moved to its own page so the
-          pricing/legal content isn't all crammed into one long scroll. */}
-      <section className="cx-section" id="refund-policy">
-        <div className="cx-container">
-          <div className="cx-policy-cta cx-reveal">
-            <div>
-              <h2 className="cx-card-title" style={{ fontSize: "1.2rem" }}>Refund &amp; Cancellation Policy</h2>
-              <p className="cx-card-desc" style={{ marginBottom: 0 }}>
-                Details on eligibility windows, subscriptions, renewals, and how to request a refund.
-              </p>
             </div>
-            <a className="cx-btn cx-btn-outline cx-policy-cta-btn" href="/refund-policy">
-              View Full Policy <span className="cx-btn-arrow" aria-hidden="true">→</span>
-            </a>
-          </div>
-        </div>
-      </section>
 
-      {/* How It Works */}
-      <section className="cx-section cx-section-alt">
-        <div className="cx-container">
-          <h2 className="cx-section-title cx-centered cx-reveal">How CredX Works</h2>
-          <div className="cx-steps-grid">
-            {howItWorks.map((step, i) => (
-              <div className="cx-card cx-step-card cx-reveal" style={{ transitionDelay: `${i * 60}ms` }} key={step.title}>
-                <span className="cx-step-number">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="cx-card-title">{step.title}</h3>
-                <p className="cx-card-desc">{step.desc}</p>
+            <div className="cx-hero-visual cx-anim cx-anim-5">
+              <CredXIllustration />
+            </div>
+          </div>
+        </section>
+
+        {/* Positioning */}
+        <section className="cx-section cx-section-alt">
+          <div className="cx-container">
+            <div className="cx-positioning">
+              <div className="cx-reveal">
+                <h2 className="cx-section-title">Model Validation Without Spreadsheet Chaos</h2>
+                <p className="cx-body-text">
+                  Credit risk model validation often involves disconnected spreadsheets, manually
+                  developed tests, and inconsistent calculations.
+                </p>
+                <p className="cx-body-text">
+                  CredX provides an environment within Microsoft Excel for validating and
+                  calibrating IFRS 9 and credit risk models. It helps users perform model testing
+                  more consistently, investigate exceptions, compare model outcomes, and generate
+                  evidence that can support validation, governance, and audit procedures.
+                </p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Use Cases */}
-      <section className="cx-section cx-section-alt">
-        <div className="cx-container">
-          <h2 className="cx-section-title cx-centered cx-reveal">CredX Use Cases</h2>
-          <div className="cx-usecase-grid">
-            {useCases.map((u, i) => (
-              <div className="cx-card cx-reveal" style={{ transitionDelay: `${i * 50}ms` }} key={u.title}>
-                <h3 className="cx-card-title">{u.title}</h3>
-                <p className="cx-card-desc">{u.desc}</p>
+              <div className="cx-sits-between cx-reveal">
+                <span className="cx-sits-between-label">CredX sits between</span>
+                <div className="cx-sits-between-row">
+                  <div className="cx-sits-between-item">Manually developed Excel testing files</div>
+                  <span className="cx-sits-between-arrow" aria-hidden="true">↔</span>
+                  <div className="cx-sits-between-item cx-sits-between-highlight">CredX</div>
+                  <span className="cx-sits-between-arrow" aria-hidden="true">↔</span>
+                  <div className="cx-sits-between-item">Highly technical statistical software</div>
+                </div>
+                <p className="cx-body-text cx-sits-between-note">
+                  …and large enterprise model-risk platforms — combining the familiarity of Excel
+                  with a structured credit risk validation framework.
+                </p>
               </div>
-            ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* FAQ */}
-      <section className="cx-section">
-        <div className="cx-container cx-faq-container">
-          <h2 className="cx-section-title cx-centered cx-reveal">Frequently Asked Questions</h2>
-          <div className="cx-faq-list">
-            {faqs.map((f, i) => {
-              const isOpen = openFaq === i;
-              return (
-                <div className={`cx-faq-item ${isOpen ? "cx-faq-item-open" : ""}`} key={f.q}>
-                  <button
-                    className="cx-faq-question"
-                    onClick={() => setOpenFaq(isOpen ? null : i)}
-                    aria-expanded={isOpen}
+        {/* Who CredX Is For */}
+        <section className="cx-section">
+          <div className="cx-container">
+            <h2 className="cx-section-title cx-centered cx-reveal">Who CredX Is For</h2>
+            <div className="cx-audience-grid">
+              {audiences.map((a, i) => (
+                <div className="cx-card cx-reveal" style={{ transitionDelay: `${i * 60}ms` }} key={a.key}>
+                  <h3 className="cx-card-title">{a.title}</h3>
+                  <p className="cx-card-desc">{a.desc}</p>
+                  <span className="cx-label">Suitable for</span>
+                  <ul className="cx-tag-list">
+                    {a.suitableFor.map((role) => (
+                      <li key={role}>{role}</li>
+                    ))}
+                  </ul>
+                  {a.note && <p className="cx-note">{a.note}</p>}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Tools Explorer */}
+        <section className="cx-section cx-section-alt" id="tools">
+          <div className="cx-container">
+            <h2 className="cx-section-title cx-centered cx-reveal">CredX Tools</h2>
+            <p className="cx-section-description cx-centered cx-reveal">
+              Twenty calibration and validation tools across seven categories, covering the full
+              IFRS 9 model lifecycle from PD calibration through PiT LGD validation.
+            </p>
+
+            <div className="cx-tab-row" role="tablist">
+              {toolCategories.map((cat) => (
+                <button
+                  key={cat.id}
+                  role="tab"
+                  aria-selected={activeCategory === cat.id}
+                  className={`cx-tab ${activeCategory === cat.id ? "cx-tab-active" : ""}`}
+                  onClick={() => setActiveCategory(cat.id)}
+                >
+                  {cat.label}
+                </button>
+              ))}
+            </div>
+
+            <div className="cx-tool-grid" key={activeCategory}>
+              {currentCategory.tools.map((tool, i) => (
+                <div className="cx-card cx-tool-card cx-fade-in" style={{ animationDelay: `${i * 70}ms` }} key={tool.name}>
+                  <h3 className="cx-card-title">{tool.name}</h3>
+                  <p className="cx-card-desc">{tool.desc}</p>
+                  <span className="cx-label">Can support</span>
+                  <ul className="cx-bullet-list">
+                    {tool.supports.map((s) => (
+                      <li key={s}>{s}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Why Use CredX */}
+        <section className="cx-section">
+          <div className="cx-container">
+            <h2 className="cx-section-title cx-centered cx-reveal">Why Use CredX?</h2>
+            <div className="cx-benefit-grid">
+              {benefits.map((b, i) => (
+                <div className="cx-card cx-reveal" style={{ transitionDelay: `${i * 50}ms` }} key={b.title}>
+                  <h3 className="cx-card-title">{b.title}</h3>
+                  <p className="cx-card-desc">{b.desc}</p>
+                  {b.extra && (
+                    <ul className="cx-bullet-list">
+                      {b.extra.map((e) => (
+                        <li key={e}>{e}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Buying Options */}
+        <section className="cx-section cx-section-alt" id="pricing">
+          <div className="cx-container">
+            <h2 className="cx-section-title cx-centered cx-reveal">Buying Options</h2>
+            <p className="cx-section-description cx-centered cx-reveal">
+              CredX is available under two principal licence options.
+            </p>
+
+            <div className="cx-billing-toggle">
+              <span
+                className="cx-billing-thumb"
+                style={{ transform: billing === "monthly" ? "translateX(0%)" : "translateX(100%)" }}
+                aria-hidden="true"
+              />
+              <button
+                className={`cx-billing-btn ${billing === "monthly" ? "cx-billing-btn-active" : ""}`}
+                onClick={() => setBilling("monthly")}
+              >
+                Monthly
+              </button>
+              <button
+                className={`cx-billing-btn ${billing === "yearly" ? "cx-billing-btn-active" : ""}`}
+                onClick={() => setBilling("yearly")}
+              >
+                Yearly
+              </button>
+            </div>
+
+            <div className="cx-plan-grid">
+              {plans.map((plan) => (
+                <div
+                  className={`cx-plan-card ${plan.highlighted ? "cx-plan-card-highlighted" : ""}`}
+                  key={plan.key}
+                >
+                  {plan.highlighted && <span className="cx-plan-badge">Most Popular</span>}
+                  <h3 className="cx-plan-name">{plan.name}</h3>
+                  <p className="cx-plan-audience">{plan.audience}</p>
+
+                  <div className="cx-plan-price">
+                    <span className="cx-plan-price-value" key={billing}>
+                      {billing === "monthly" ? plan.priceMonthly : plan.priceYearly}
+                    </span>
+                    <span className="cx-plan-price-period">
+                      /{billing === "monthly" ? "month" : "year"}/user
+                    </span>
+                  </div>
+
+                  <p className="cx-card-desc">{plan.desc}</p>
+
+                  <span className="cx-label">Usage allowance</span>
+                  <ul className="cx-bullet-list">
+                    {plan.usage.map((u) => (
+                      <li key={u}>{u}</li>
+                    ))}
+                  </ul>
+
+                  <span className="cx-label">License features</span>
+                  <ul className="cx-bullet-list">
+                    {plan.features.map((f) => (
+                      <li key={f}>{f}</li>
+                    ))}
+                  </ul>
+
+                  <p className="cx-plan-tools-note">
+                    Includes all 20 CredX calibration and validation tools — see{" "}
+                    <a href="#tools">CredX Tools</a>.
+                  </p>
+
+                  <a
+                    className={`cx-btn ${plan.highlighted ? "cx-btn-primary" : "cx-btn-outline"} cx-plan-cta`}
+                    href="/contact"
                   >
-                    {f.q}
-                    <span className="cx-faq-icon" aria-hidden="true">+</span>
-                  </button>
-                  <div className="cx-faq-answer-wrap">
-                    <div className="cx-faq-answer-inner">
-                      <p className="cx-faq-answer">{f.a}</p>
+                    Coming soon<span className="cx-btn-arrow" aria-hidden="true">→</span>
+                  </a>
+                </div>
+              ))}
+            </div>
+
+            <div className="cx-table-scroll cx-reveal">
+              <table className="cx-table">
+                <thead>
+                  <tr>
+                    <th>Feature</th>
+                    <th>CredX Professional</th>
+                    <th>CredX Team</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparisonRows.map((row) => (
+                    <tr key={row.feature}>
+                      <th>{row.feature}</th>
+                      <td className={row.professional.startsWith("Not") || row.professional === "No" ? "cx-muted" : ""}>
+                        {row.professional}
+                      </td>
+                      <td>{row.team}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        {/* Refund & Cancellation Policy — moved to its own page so the
+          pricing/legal content isn't all crammed into one long scroll. */}
+        <section className="cx-section" id="refund-policy">
+          <div className="cx-container">
+            <div className="cx-policy-cta cx-reveal">
+              <div>
+                <h2 className="cx-card-title" style={{ fontSize: "1.2rem" }}>Refund &amp; Cancellation Policy</h2>
+                <p className="cx-card-desc" style={{ marginBottom: 0 }}>
+                  Details on eligibility windows, subscriptions, renewals, and how to request a refund.
+                </p>
+              </div>
+              <a className="cx-btn cx-btn-outline cx-policy-cta-btn" href="/refund-policy">
+                View Full Policy <span className="cx-btn-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* How It Works */}
+        <section className="cx-section cx-section-alt">
+          <div className="cx-container">
+            <h2 className="cx-section-title cx-centered cx-reveal">How CredX Works</h2>
+            <div className="cx-steps-grid">
+              {howItWorks.map((step, i) => (
+                <div className="cx-card cx-step-card cx-reveal" style={{ transitionDelay: `${i * 60}ms` }} key={step.title}>
+                  <span className="cx-step-number">{String(i + 1).padStart(2, "0")}</span>
+                  <h3 className="cx-card-title">{step.title}</h3>
+                  <p className="cx-card-desc">{step.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Use Cases */}
+        <section className="cx-section cx-section-alt">
+          <div className="cx-container">
+            <h2 className="cx-section-title cx-centered cx-reveal">CredX Use Cases</h2>
+            <div className="cx-usecase-grid">
+              {useCases.map((u, i) => (
+                <div className="cx-card cx-reveal" style={{ transitionDelay: `${i * 50}ms` }} key={u.title}>
+                  <h3 className="cx-card-title">{u.title}</h3>
+                  <p className="cx-card-desc">{u.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="cx-section">
+          <div className="cx-container cx-faq-container">
+            <h2 className="cx-section-title cx-centered cx-reveal">Frequently Asked Questions</h2>
+            <div className="cx-faq-list">
+              {faqs.map((f, i) => {
+                const isOpen = openFaq === i;
+                return (
+                  <div className={`cx-faq-item ${isOpen ? "cx-faq-item-open" : ""}`} key={f.q}>
+                    <button
+                      className="cx-faq-question"
+                      onClick={() => setOpenFaq(isOpen ? null : i)}
+                      aria-expanded={isOpen}
+                    >
+                      {f.q}
+                      <span className="cx-faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div className="cx-faq-answer-wrap">
+                      <div className="cx-faq-answer-inner">
+                        <p className="cx-faq-answer">{f.a}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Contact */}
-      <section className="cx-section cx-section-alt">
-        <div className="cx-container cx-contact cx-reveal">
-          <h2 className="cx-section-title">Ready to Validate with Confidence?</h2>
-          <p className="cx-section-description">
-            Talk to the team about which CredX licence fits your validation, calibration, or
-            audit workflow.
-          </p>
-          <div className="cx-contact-actions">
-            <a className="cx-btn cx-btn-primary" href="mailto:info@probmatrix.io">
-              info@probmatrix.io
-            </a>
-            <a className="cx-btn cx-btn-outline" href="tel:+923365264744">
-              +92 336 5264744
-            </a>
+        {/* Contact */}
+        <section className="cx-section cx-section-alt">
+          <div className="cx-container cx-contact cx-reveal">
+            <h2 className="cx-section-title">Ready to Validate with Confidence?</h2>
+            <p className="cx-section-description">
+              Talk to the team about which CredX licence fits your validation, calibration, or
+              audit workflow.
+            </p>
+            <div className="cx-contact-actions">
+              <a className="cx-btn cx-btn-primary" href="mailto:info@probmatrix.io">
+                info@probmatrix.io
+              </a>
+              <a className="cx-btn cx-btn-outline" href="tel:+923365264744">
+                +92 336 5264744
+              </a>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap");
 
         .cx-page {
@@ -1773,8 +1784,9 @@ export default function CredX(): JSX.Element {
           }
         }
       `,
-        }}
-      />
-    </div>
+          }}
+        />
+      </div>
+    </>
   );
 }

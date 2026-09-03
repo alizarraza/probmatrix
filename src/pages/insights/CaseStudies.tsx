@@ -1,3 +1,5 @@
+import { Helmet } from "react-helmet-async";
+
 interface Study {
   title: string;
   industry: string;
@@ -40,48 +42,57 @@ function extractStat(title: string): string | null {
 
 export default function CaseStudies(): JSX.Element {
   return (
-    <section className="cs-section">
-      <div className="cs-glow" aria-hidden="true" />
+    <>
+      <Helmet>
+        <title>IFRS 9 Case Studies | ECL & Credit Risk Success Stories</title>
+        <meta
+          name="description"
+          content="Explore IFRS 9 case studies showing how banks and financial institutions improve ECL modelling, credit risk management, reporting, governance, and compliance."
+        />
+      </Helmet>
 
-      <div className="cs-container">
-        <div className="cs-heading">
-          <span className="cs-eyebrow">
-            <span className="cs-eyebrow-dot" aria-hidden="true" />
-            Success Stories
-          </span>
-          <h1 className="cs-title">Case Studies</h1>
-          <p className="cs-description">
-            Discover how financial institutions use Probmatrix solutions to
-            modernize IFRS 9 reporting, improve governance, and strengthen
-            credit risk management.
-          </p>
-        </div>
+      <section className="cs-section">
+        <div className="cs-glow" aria-hidden="true" />
 
-        <div className="cs-grid">
-          {studies.map((study) => {
-            const stat = extractStat(study.title);
-            return (
-              <div className="cs-card" key={study.title}>
-                <div className="cs-card-top">
-                  <span className="cs-industry">{study.industry}</span>
-                  {stat && <span className="cs-stat">{stat}</span>}
+        <div className="cs-container">
+          <div className="cs-heading">
+            <span className="cs-eyebrow">
+              <span className="cs-eyebrow-dot" aria-hidden="true" />
+              Success Stories
+            </span>
+            <h1 className="cs-title">IFRS 9, ECL & Credit Risk Case Studies</h1>
+            <p className="cs-description">
+              Discover how financial institutions use Probmatrix solutions to
+              modernize IFRS 9 reporting, improve governance, and strengthen
+              credit risk management.
+            </p>
+          </div>
+
+          <div className="cs-grid">
+            {studies.map((study) => {
+              const stat = extractStat(study.title);
+              return (
+                <div className="cs-card" key={study.title}>
+                  <div className="cs-card-top">
+                    <span className="cs-industry">{study.industry}</span>
+                    {stat && <span className="cs-stat">{stat}</span>}
+                  </div>
+
+                  <h3 className="cs-card-title">{study.title}</h3>
+                  <p className="cs-card-description">{study.description}</p>
+
+                  <a className="cs-cta" href="#">
+                    Read case study <span aria-hidden="true">→</span>
+                  </a>
                 </div>
-
-                <h3 className="cs-card-title">{study.title}</h3>
-                <p className="cs-card-description">{study.description}</p>
-
-                <a className="cs-cta" href="#">
-                  Read case study <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
 
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap");
 
         .cs-section {
@@ -262,8 +273,9 @@ export default function CaseStudies(): JSX.Element {
           }
         }
       `,
-        }}
-      />
-    </section>
+          }}
+        />
+      </section>
+    </>
   );
 }

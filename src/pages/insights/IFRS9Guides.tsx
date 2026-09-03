@@ -1,3 +1,5 @@
+import { Helmet } from "react-helmet-async";
+
 interface PdfGuide {
   title: string;
   description: string;
@@ -11,7 +13,7 @@ const pdfGuides: PdfGuide[] = [
     title: "IFRS 9 ECL Guide for Development Finance Institutions",
     description:
       "Practical implementation guide, industry best practices, and regulatory expectations for DFIs.",
-    file: "/public/guides/IFRS-9-Expected-Credit-Loss-Guide-for-DFIs.pdf",
+    file: "/guides/IFRS-9-Expected-Credit-Loss-Guide-for-DFIs.pdf",
     fileName: "IFRS 9 ECL Guide for Development Finance Institutions.pdf",
     fileSize: "0.8 MB",
   },
@@ -19,7 +21,7 @@ const pdfGuides: PdfGuide[] = [
     title: "IFRS 9 ECL Guide for Investment Finance Companies",
     description:
       "Practical implementation guide, industry best practices, and regulatory expectations for IFCs.",
-    file: "/public/guides/IFRS-9-Expected-Credit-Loss-Guide-for-Investment-Finance-Companies.pdf",
+    file: "/guides/IFRS-9-Expected-Credit-Loss-Guide-for-IFCs.pdf",
     fileName: "IFRS 9 ECL Guide for Investment Finance Companies.pdf",
     fileSize: "0.9 MB",
   },
@@ -27,7 +29,7 @@ const pdfGuides: PdfGuide[] = [
     title: "IFRS 9 ECL Guide for Insurance Companies",
     description:
       "Practical implementation guide, industry best practices, and regulatory expectations for insurance companies.",
-    file: "/public/guides/IFRS-9-Expected-Credit-Loss-Guide-for-Insurance-Companies.pdf",
+    file: "/guides/IFRS-9-Expected-Credit-Loss-Guide-for-Insurance-Companies.pdf",
     fileName: "IFRS 9 ECL Guide for Insurance Companies.pdf",
     fileSize: "0.7 MB",
   },
@@ -113,6 +115,15 @@ function DownloadIcon(): JSX.Element {
 
 export default function IFRS9Guides(): JSX.Element {
   return (
+    <>
+      <Helmet>
+            <title>IFRS 9 Implementation, ECL & Risk Modelling Guides | ProbMatrix</title>
+            <meta
+              name="description"
+              content="Explore IFRS 9 implementation, ECL and risk modelling guides covering PD, LGD, EAD, model validation, governance, stress testing, and regulatory compliance."
+            />
+          </Helmet>
+
     <section className="gd-section">
       <div className="gd-glow" aria-hidden="true" />
 
@@ -122,7 +133,7 @@ export default function IFRS9Guides(): JSX.Element {
             <span className="gd-eyebrow-dot" aria-hidden="true" />
             Guides
           </span>
-          <h1 className="gd-title">IFRS 9 Implementation Guides</h1>
+          <h1 className="gd-title">IFRS 9 Implementation, ECL & Risk Modelling Guides</h1>
           <p className="gd-description">
             Practical implementation guides to help financial institutions
             deploy, validate, and manage IFRS 9 impairment models.
@@ -527,5 +538,7 @@ export default function IFRS9Guides(): JSX.Element {
         }}
       />
     </section>
+
+        </>
   );
 }

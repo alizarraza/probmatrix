@@ -1,3 +1,5 @@
+import { Helmet } from 'react-helmet-async'
+
 import { Link } from 'react-router-dom'
 import { images, img } from '../content/images'
 import { IconExcel, IconChart, IconCheckCircle, IconArrowRight } from '../components/icons'
@@ -6,6 +8,13 @@ import FinalCTA from '../components/FinalCTA'
 export default function Solutions() {
   return (
     <>
+      <Helmet>
+        <title>Credit Risk Management Solutions & Tools | ProbMatrix</title>
+        <meta
+          name="description"
+          content="Explore ProbMatrix credit risk management solutions for IFRS 9, ECL calculations, credit risk modeling, regulatory reporting, and automated risk workflows."
+        />
+      </Helmet>
       <section
         style={{
           padding: '90px 0 60px',
@@ -14,7 +23,7 @@ export default function Solutions() {
       >
         <div className="container" style={{ maxWidth: 720 }}>
           <span className="section-eyebrow">Our Solutions</span>
-          <h1 style={{ fontSize: 'clamp(28px, 4.2vw, 42px)' }}>Two products, one goal: audit-ready numbers</h1>
+          <h1 style={{ fontSize: 'clamp(28px, 4.2vw, 42px)' }}>Credit Risk Management Solutions & Tools</h1>
           <p style={{ marginTop: 20, fontSize: 16.5, color: 'var(--text-secondary)' }}>
             The IFRS 9 Excel Add-In and CredX work together to automate credit risk and regulatory
             reporting — from Excel-native ECL computations to the platform behind our advisory

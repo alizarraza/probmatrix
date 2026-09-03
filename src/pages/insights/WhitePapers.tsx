@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { papers } from "../../content/Whitepaperdata";
+import { Helmet } from "react-helmet-async";
 
 // Survival / behavioural-maturity curve — recolored to sit on the dark navy
 // theme, echoing the PD / LGD / ECL metric badges used across the site.
@@ -49,66 +50,75 @@ function accessionNumber(dateStr: string, index: number): string {
 
 export default function WhitePapers(): JSX.Element {
   return (
-    <section className="wp-section">
-      <div className="wp-glow" aria-hidden="true" />
+    <>
+      <Helmet>
+        <title>IFRS 9 White Papers | ECL & Credit Risk Research | ProbMatrix</title>
+        <meta
+          name="description"
+          content="Explore IFRS 9 white papers on ECL, credit risk analytics, survival analysis, behavioural modelling, expected maturity, and advanced risk modelling research."
+        />
+      </Helmet>
 
-      <div className="wp-container">
-        <div className="wp-heading">
-          <span className="wp-eyebrow">
-            <span className="wp-eyebrow-dot" aria-hidden="true" />
-            Research Library
-          </span>
-          <h1 className="wp-title">White Papers</h1>
-          <p className="wp-description">
-            Technical publications covering IFRS 9 methodologies, survival
-            analysis, behavioural modelling, expected credit loss, and
-            advanced credit risk analytics.
-          </p>
-        </div>
+      <section className="wp-section">
+        <div className="wp-glow" aria-hidden="true" />
 
-        <div className="wp-list">
-          {papers.map((paper, i) => (
-            <article className="wp-card" key={paper.slug}>
-              <div className="wp-card-top">
-                <span className="wp-doc-no">{accessionNumber(paper.date, i)}</span>
-                <span className="wp-doc-type">White Paper</span>
-              </div>
+        <div className="wp-container">
+          <div className="wp-heading">
+            <span className="wp-eyebrow">
+              <span className="wp-eyebrow-dot" aria-hidden="true" />
+              Research Library
+            </span>
+            <h1 className="wp-title">IFRS 9, ECL & Credit Risk White Papers</h1>
+            <p className="wp-description">
+              Technical publications covering IFRS 9 methodologies, survival
+              analysis, behavioural modelling, expected credit loss, and
+              advanced credit risk analytics.
+            </p>
+          </div>
 
-              <div className="wp-card-body">
-                <div className="wp-card-text">
-                  <h2 className="wp-card-title">{paper.title}</h2>
-                  <p className="wp-card-description">{paper.description}</p>
+          <div className="wp-list">
+            {papers.map((paper, i) => (
+              <article className="wp-card" key={paper.slug}>
+                <div className="wp-card-top">
+                  <span className="wp-doc-no">{accessionNumber(paper.date, i)}</span>
+                  <span className="wp-doc-type">White Paper</span>
+                </div>
 
-                  <div className="wp-card-footer">
-                    <span className="wp-author">{paper.author}</span>
-                    <span className="wp-dot" aria-hidden="true">•</span>
-                    <span>{paper.date}</span>
-                    <span className="wp-dot" aria-hidden="true">•</span>
-                    <span>{paper.read}</span>
+                <div className="wp-card-body">
+                  <div className="wp-card-text">
+                    <h2 className="wp-card-title">{paper.title}</h2>
+                    <p className="wp-card-description">{paper.description}</p>
+
+                    <div className="wp-card-footer">
+                      <span className="wp-author">{paper.author}</span>
+                      <span className="wp-dot" aria-hidden="true">•</span>
+                      <span>{paper.date}</span>
+                      <span className="wp-dot" aria-hidden="true">•</span>
+                      <span>{paper.read}</span>
+                    </div>
+
+                    {paper.body && (
+                      <Link className="wp-cta" to={`/insights/white-papers/${paper.slug}`}>
+                        Read the paper <span aria-hidden="true">→</span>
+                      </Link>
+                    )}
                   </div>
 
-                  {paper.body && (
-                    <Link className="wp-cta" to={`/insights/white-papers/${paper.slug}`}>
-                      Read the paper <span aria-hidden="true">→</span>
-                    </Link>
-                  )}
+                  <div className="wp-card-figure">
+                    <SurvivalCurve />
+                    <span className="wp-curve-label">
+                      Behavioural maturity curve — illustrative
+                    </span>
+                  </div>
                 </div>
-
-                <div className="wp-card-figure">
-                  <SurvivalCurve />
-                  <span className="wp-curve-label">
-                    Behavioural maturity curve — illustrative
-                  </span>
-                </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            ))}
+          </div>
         </div>
-      </div>
 
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap");
 
         .wp-section {
@@ -334,8 +344,9 @@ export default function WhitePapers(): JSX.Element {
           }
         }
       `,
-        }}
-      />
-    </section>
+          }}
+        />
+      </section>
+    </>
   );
 }

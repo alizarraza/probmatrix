@@ -1,50 +1,59 @@
 import { Link } from "react-router-dom";
 import { articles } from "../../content/Articlesdata";
+import { Helmet } from "react-helmet-async";
 
 export default function Articles(): JSX.Element {
   return (
-    <section className="ar-section">
-      <div className="ar-glow" aria-hidden="true" />
+    <>
+      <Helmet>
+        <title>Blogs | IFRS 9, ECL, Credit Risk & Risk Modelling Articles</title>
+        <meta
+          name="description"
+          content="Explore articles on IFRS 9, expected credit loss, credit risk, risk modelling, PD, LGD, regulatory compliance, stress testing, data quality, and financial risk."
+        />
+      </Helmet>
+      <section className="ar-section">
+        <div className="ar-glow" aria-hidden="true" />
 
-      <div className="ar-container">
-        <div className="ar-heading">
-          <span className="ar-eyebrow">
-            <span className="ar-eyebrow-dot" aria-hidden="true" />
-            Insights
-          </span>
-          <h1 className="ar-title">Articles</h1>
-          <p className="ar-description">
-            Stay informed with practical articles covering IFRS 9, expected
-            credit loss, risk modelling, regulatory compliance, and industry
-            best practices.
-          </p>
-        </div>
+        <div className="ar-container">
+          <div className="ar-heading">
+            <span className="ar-eyebrow">
+              <span className="ar-eyebrow-dot" aria-hidden="true" />
+              Insights
+            </span>
+            <h1 className="ar-title">IFRS 9, ECL, Credit Risk & Risk Modelling Articles</h1>
+            <p className="ar-description">
+              Stay informed with practical articles covering IFRS 9, expected
+              credit loss, risk modelling, regulatory compliance, and industry
+              best practices.
+            </p>
+          </div>
 
-        <div className="ar-grid">
-          {articles.map((article) => (
-            <div className="ar-card" key={article.slug}>
-              <h3 className="ar-card-title">{article.title}</h3>
-              <p className="ar-card-description">{article.description}</p>
+          <div className="ar-grid">
+            {articles.map((article) => (
+              <div className="ar-card" key={article.slug}>
+                <h3 className="ar-card-title">{article.title}</h3>
+                <p className="ar-card-description">{article.description}</p>
 
-              <div className="ar-card-meta">
-                <span className="ar-author">{article.author}</span>
-                <span className="ar-dot" aria-hidden="true">•</span>
-                <span>{article.date}</span>
-                <span className="ar-dot" aria-hidden="true">•</span>
-                <span>{article.read}</span>
+                <div className="ar-card-meta">
+                  <span className="ar-author">{article.author}</span>
+                  <span className="ar-dot" aria-hidden="true">•</span>
+                  <span>{article.date}</span>
+                  <span className="ar-dot" aria-hidden="true">•</span>
+                  <span>{article.read}</span>
+                </div>
+
+                <Link className="ar-cta" to={`/insights/articles/${article.slug}`}>
+                  Learn More <span aria-hidden="true">→</span>
+                </Link>
               </div>
-
-              <Link className="ar-cta" to={`/insights/articles/${article.slug}`}>
-                Learn More <span aria-hidden="true">→</span>
-              </Link>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
 
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap");
 
         .ar-section {
@@ -223,8 +232,10 @@ export default function Articles(): JSX.Element {
           }
         }
       `,
-        }}
-      />
-    </section>
+          }}
+        />
+      </section>
+    </>
+
   );
 }

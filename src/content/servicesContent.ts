@@ -66,7 +66,7 @@ export const heroSlides: HeroSlide[] = [
 
 export const ifrs9AdvisoryIntro = {
   eyebrow: 'Our IFRS 9 Advisory Services',
-  title: 'Independent, regulator-aligned IFRS 9 advisory',
+  title: 'IFRS 9 Advisory & Consulting Services',
   body: 'ProbMatrix provides independent, regulator-aligned IFRS 9 advisory services covering design, validation, implementation, and governance of Expected Credit Loss frameworks.',
 }
 

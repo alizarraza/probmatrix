@@ -16,6 +16,7 @@ import {
 } from '../content/servicesContent'
 import { IconCheckCircle, IconArrowRight } from '../components/icons'
 import ExpertForm from '../components/forms/ExpertForm'
+import { Helmet } from 'react-helmet-async'
 
 export default function Services() {
   const [expertOpen, setExpertOpen] = useState(false)
@@ -23,6 +24,13 @@ export default function Services() {
 
   return (
     <>
+      <Helmet>
+        <title>IFRS 9 Advisory & Consulting Services | ProbMatrix</title>
+        <meta
+          name="description"
+          content="ProbMatrix provides IFRS 9 advisory and consulting services, including ECL modeling, model validation, implementation, regulatory compliance, and automation."
+        />
+      </Helmet>
       {/* Hero */}
       <section
         style={{
