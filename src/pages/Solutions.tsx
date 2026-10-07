@@ -14,6 +14,8 @@ export default function Solutions() {
           name="description"
           content="Explore ProbMatrix credit risk management solutions for IFRS 9, ECL calculations, credit risk modeling, regulatory reporting, and automated risk workflows."
         />
+        <link rel="canonical" href="https://probmatrix.io/solutions" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       </Helmet>
       <section
         style={{

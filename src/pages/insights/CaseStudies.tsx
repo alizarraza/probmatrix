@@ -49,6 +49,8 @@ export default function CaseStudies(): JSX.Element {
           name="description"
           content="Explore IFRS 9 case studies showing how banks and financial institutions improve ECL modelling, credit risk management, reporting, governance, and compliance."
         />
+                <link rel="canonical" href="https://probmatrix.io/insights/case-studies" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       </Helmet>
 
       <section className="cs-section">

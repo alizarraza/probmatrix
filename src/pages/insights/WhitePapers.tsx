@@ -57,6 +57,8 @@ export default function WhitePapers(): JSX.Element {
           name="description"
           content="Explore IFRS 9 white papers on ECL, credit risk analytics, survival analysis, behavioural modelling, expected maturity, and advanced risk modelling research."
         />
+                            <link rel="canonical" href="https://probmatrix.io/insights/white-papers" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       </Helmet>
 
       <section className="wp-section">

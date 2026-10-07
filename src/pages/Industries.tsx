@@ -7,13 +7,15 @@ import { Helmet } from 'react-helmet-async'
 export default function Industries() {
   return (
     <>
-     <Helmet>
-            <title>Financial Risk Management for Banks & Institutions | ProbMatrix</title>
-            <meta
-              name="description"
-              content="Financial risk management solutions for banks, MFIs, DFIs, NBFCs and insurers, covering credit risk, ECL modeling, regulatory reporting and risk validation."
-            />
-          </Helmet>
+      <Helmet>
+        <title>Financial Risk Management for Banks & Institutions | ProbMatrix</title>
+        <meta
+          name="description"
+          content="Financial risk management solutions for banks, MFIs, DFIs, NBFCs and insurers, covering credit risk, ECL modeling, regulatory reporting and risk validation."
+        />
+        <link rel="canonical" href="https://probmatrix.io/industries" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      </Helmet>
       <section
         style={{
           position: 'relative',

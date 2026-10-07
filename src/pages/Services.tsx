@@ -30,6 +30,8 @@ export default function Services() {
           name="description"
           content="ProbMatrix provides IFRS 9 advisory and consulting services, including ECL modeling, model validation, implementation, regulatory compliance, and automation."
         />
+        <link rel="canonical" href="https://probmatrix.io/services" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       </Helmet>
       {/* Hero */}
       <section

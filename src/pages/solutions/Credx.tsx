@@ -558,6 +558,8 @@ export default function CredX(): JSX.Element {
           name="description"
           content="CredX is an Excel-based toolkit for credit risk model validation, calibration, testing and audit support for IFRS 9 professionals, consultants and auditors."
         />
+                            <link rel="canonical" href="https://probmatrix.io/solutions/credx" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       </Helmet>
 
 

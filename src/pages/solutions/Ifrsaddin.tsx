@@ -505,6 +505,8 @@ export default function IfrsAddin(): JSX.Element {
           name="description"
           content="Automate IFRS 9 Expected Credit Loss calculations with the ProbMatrix Excel Add-In. Model PD, LGD, EAD, scenarios, staging and ECL with auditable results."
         />
+                            <link rel="canonical" href="https://probmatrix.io/solutions/ifrsaddin" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       </Helmet>
 
 

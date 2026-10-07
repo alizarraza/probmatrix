@@ -182,6 +182,8 @@ export default function Partnership(): JSX.Element {
           name="description"
           content="Partner with ProbMatrix to deliver IFRS 9, ECL, credit risk and financial reporting solutions. Grow recurring revenue with expert support and training."
         />
+        <link rel="canonical" href="https://probmatrix.io/partnership" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       </Helmet>
       <div className="px-page">
         <div className="px-glow" aria-hidden="true" />
@@ -194,7 +196,7 @@ export default function Partnership(): JSX.Element {
               Partnership Program
             </span>
             <h1 className="px-title">
-             IFRS 9, Risk & ECL Partnership Program
+              IFRS 9, Risk & ECL Partnership Program
             </h1>
 
             <p className="px-lead">

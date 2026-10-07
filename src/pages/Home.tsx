@@ -17,6 +17,8 @@ export default function Home() {
     <>
      <Helmet>
         <title>Best Risk Management Company & Consulting Firm | ProbMatrix</title>
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+            <link rel="canonical" href="https://probmatrix.io" />
         <meta
           name="description"
           content="ProbMatrix is a global risk management company offering risk modeling, automation, IFRS 9 advisory, model validation, stress testing and financial risk solutions."

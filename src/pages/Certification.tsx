@@ -132,6 +132,9 @@ export default function Certification(): JSX.Element {
     <>
       <Helmet>
         <title>IFRS 9 Certification Program | ECL & Risk Analytics | ProbMatrix</title>
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <link rel="canonical" href="https://probmatrix.io/certification" />
+
         <meta
           name="description"
           content="Earn IFRS 9 certification with practical training in ECL, PD, LGD, EAD, SICR, risk modelling and Excel-based automation. Build expertise and career growth."

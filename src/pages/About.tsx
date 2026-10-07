@@ -15,6 +15,8 @@ export default function About() {
           name="description"
           content="ProbMatrix is a specialized risk automation and advisory firm providing regulatory consulting, risk modeling, advanced analytics, compliance, and model validation."
         />
+        <link rel="canonical" href="https://probmatrix.io/about" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       </Helmet>
       <section
         style={{

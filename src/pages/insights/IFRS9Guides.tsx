@@ -117,118 +117,121 @@ export default function IFRS9Guides(): JSX.Element {
   return (
     <>
       <Helmet>
-            <title>IFRS 9 Implementation, ECL & Risk Modelling Guides | ProbMatrix</title>
-            <meta
-              name="description"
-              content="Explore IFRS 9 implementation, ECL and risk modelling guides covering PD, LGD, EAD, model validation, governance, stress testing, and regulatory compliance."
-            />
-          </Helmet>
+        <title>IFRS 9 Implementation, ECL & Risk Modelling Guides | ProbMatrix</title>
+        <meta
+          name="description"
+          content="Explore IFRS 9 implementation, ECL and risk modelling guides covering PD, LGD, EAD, model validation, governance, stress testing, and regulatory compliance."
+        />
+        <link rel="canonical" href="https://probmatrix.io/insights/guides" />
 
-    <section className="gd-section">
-      <div className="gd-glow" aria-hidden="true" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      </Helmet>
 
-      <div className="gd-container">
-        <div className="gd-heading">
-          <span className="gd-eyebrow">
-            <span className="gd-eyebrow-dot" aria-hidden="true" />
-            Guides
-          </span>
-          <h1 className="gd-title">IFRS 9 Implementation, ECL & Risk Modelling Guides</h1>
-          <p className="gd-description">
-            Practical implementation guides to help financial institutions
-            deploy, validate, and manage IFRS 9 impairment models.
-          </p>
-        </div>
+      <section className="gd-section">
+        <div className="gd-glow" aria-hidden="true" />
 
-        {/* Downloadable industry PDF guides */}
-        <div className="gd-subheading">
-          <h2 className="gd-subheading-title">Industry ECL Guides</h2>
-          <p className="gd-subheading-description">
-            Free, in-depth PDF guides covering methodology, governance, and
-            regulatory expectations by institution type.
-          </p>
-        </div>
+        <div className="gd-container">
+          <div className="gd-heading">
+            <span className="gd-eyebrow">
+              <span className="gd-eyebrow-dot" aria-hidden="true" />
+              Guides
+            </span>
+            <h1 className="gd-title">IFRS 9 Implementation, ECL & Risk Modelling Guides</h1>
+            <p className="gd-description">
+              Practical implementation guides to help financial institutions
+              deploy, validate, and manage IFRS 9 impairment models.
+            </p>
+          </div>
 
-        <div className="gd-pdf-grid">
-          {pdfGuides.map((pdf) => (
-            <a
-              className="gd-pdf-card"
-              key={pdf.file}
-              href={pdf.file}
-              download={pdf.fileName}
-            >
-              <span className="gd-pdf-icon">
-                <PdfIcon />
-              </span>
+          {/* Downloadable industry PDF guides */}
+          <div className="gd-subheading">
+            <h2 className="gd-subheading-title">Industry ECL Guides</h2>
+            <p className="gd-subheading-description">
+              Free, in-depth PDF guides covering methodology, governance, and
+              regulatory expectations by institution type.
+            </p>
+          </div>
 
-              <h3 className="gd-pdf-title">{pdf.title}</h3>
-              <p className="gd-pdf-description">{pdf.description}</p>
-
-              <span className="gd-pdf-footer">
-                <span className="gd-pdf-meta">PDF · {pdf.fileSize}</span>
-                <span className="gd-pdf-download">
-                  <DownloadIcon />
-                  Download
+          <div className="gd-pdf-grid">
+            {pdfGuides.map((pdf) => (
+              <a
+                className="gd-pdf-card"
+                key={pdf.file}
+                href={pdf.file}
+                download={pdf.fileName}
+              >
+                <span className="gd-pdf-icon">
+                  <PdfIcon />
                 </span>
-              </span>
-            </a>
-          ))}
-        </div>
 
-        <div className="gd-subheading">
-          <h2 className="gd-subheading-title">Add-In Walkthroughs</h2>
-          <p className="gd-subheading-description">
-            Step-by-step guides for working directly in the Probmatrix IFRS 9
-            Excel Add-In.
-          </p>
-        </div>
+                <h3 className="gd-pdf-title">{pdf.title}</h3>
+                <p className="gd-pdf-description">{pdf.description}</p>
 
-        <div className="gd-grid">
-          {guides.map((guide, i) => {
-            const style = levelStyles[guide.level];
-            return (
-              <div className="gd-card" key={guide.title}>
-                <div className="gd-card-top">
-                  <span className="gd-step">
-                    <span className="gd-step-label">Step</span>
-                    <span className="gd-step-number">
-                      {String(i + 1).padStart(2, "0")}
+                <span className="gd-pdf-footer">
+                  <span className="gd-pdf-meta">PDF · {pdf.fileSize}</span>
+                  <span className="gd-pdf-download">
+                    <DownloadIcon />
+                    Download
+                  </span>
+                </span>
+              </a>
+            ))}
+          </div>
+
+          <div className="gd-subheading">
+            <h2 className="gd-subheading-title">Add-In Walkthroughs</h2>
+            <p className="gd-subheading-description">
+              Step-by-step guides for working directly in the Probmatrix IFRS 9
+              Excel Add-In.
+            </p>
+          </div>
+
+          <div className="gd-grid">
+            {guides.map((guide, i) => {
+              const style = levelStyles[guide.level];
+              return (
+                <div className="gd-card" key={guide.title}>
+                  <div className="gd-card-top">
+                    <span className="gd-step">
+                      <span className="gd-step-label">Step</span>
+                      <span className="gd-step-number">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
                     </span>
-                  </span>
-                  {i < guides.length - 1 && (
-                    <span className="gd-step-line" aria-hidden="true" />
-                  )}
+                    {i < guides.length - 1 && (
+                      <span className="gd-step-line" aria-hidden="true" />
+                    )}
+                  </div>
+
+                  <h3 className="gd-card-title">{guide.title}</h3>
+                  <p className="gd-card-description">{guide.description}</p>
+
+                  <div className="gd-card-footer">
+                    <span
+                      className="gd-level"
+                      style={{
+                        color: style.color,
+                        background: style.soft,
+                        borderColor: style.border,
+                      }}
+                    >
+                      {guide.level}
+                    </span>
+                    <span className="gd-duration">{guide.duration}</span>
+                  </div>
+
+                  <a className="gd-cta" href="#">
+                    Start guide <span aria-hidden="true">→</span>
+                  </a>
                 </div>
-
-                <h3 className="gd-card-title">{guide.title}</h3>
-                <p className="gd-card-description">{guide.description}</p>
-
-                <div className="gd-card-footer">
-                  <span
-                    className="gd-level"
-                    style={{
-                      color: style.color,
-                      background: style.soft,
-                      borderColor: style.border,
-                    }}
-                  >
-                    {guide.level}
-                  </span>
-                  <span className="gd-duration">{guide.duration}</span>
-                </div>
-
-                <a className="gd-cta" href="#">
-                  Start guide <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
 
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap");
 
         .gd-section {
@@ -535,10 +538,10 @@ export default function IFRS9Guides(): JSX.Element {
           }
         }
       `,
-        }}
-      />
-    </section>
+          }}
+        />
+      </section>
 
-        </>
+    </>
   );
 }

@@ -43,6 +43,8 @@ export default function Insights() {
           name="description"
           content="Explore IFRS 9 insights, credit risk resources, ECL guides, technical white papers and case studies covering modelling, validation and regulatory compliance."
         />
+                <link rel="canonical" href="https://probmatrix.io/insights" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       </Helmet>
       <section
         className="section"
