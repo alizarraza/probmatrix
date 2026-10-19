@@ -19,6 +19,8 @@ import WhitePaperDetail from './pages/insights/Whitepaperdetail'
 import Partnership from './pages/Partnership'
 import Certification from './pages/Certification'
 import RefundPolicy from './pages/RefundPolicyPage'
+import Grap104 from './pages/Grap104'
+import Grap104Coverage from './pages/Grap104Coverage'
 
 export default function App() {
   return (
@@ -32,9 +34,9 @@ export default function App() {
           <Route path="/insights" element={<Insights />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/solutions" element={<Solutions />} />
-          <Route path="/insights/articles" element={<Articles />} />
+          <Route path="/home/blogs" element={<Articles />} />
           <Route path="/insights" element={<Insights />} />
-          <Route path="/insights/articles" element={<Articles />} />
+          <Route path="/home/blogs" element={<Articles />} />
           <Route path="/insights/guides" element={<IFRS9Guides />} />
           <Route path="/insights/white-papers" element={<WhitePapers />} />
           <Route path="/insights/case-studies" element={<CaseStudies />} />
@@ -42,9 +44,12 @@ export default function App() {
           <Route path="/solutions/credX" element={<CredX />} />
           <Route path="/partnership" element={< Partnership />} />
           <Route path="/certification" element={<Certification />} />
-          <Route path="/insights/articles/:slug" element={<ArticleDetail />} />
+          <Route path="/home/blogs/:slug" element={<ArticleDetail />} />
           <Route path="/insights/white-papers/:slug" element={<WhitePaperDetail />} />
-          <Route path="/refund-policy" element={<RefundPolicy/>} />
+          <Route path="/refund-policy" element={<RefundPolicy />} />
+          <Route path="/grap104" element={<Grap104 />} />
+          <Route path="/grap-104/coverage" element={<Grap104Coverage />} />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>

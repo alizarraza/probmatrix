@@ -11,7 +11,7 @@ export default function Articles(): JSX.Element {
           name="description"
           content="Explore articles on IFRS 9, expected credit loss, credit risk, risk modelling, PD, LGD, regulatory compliance, stress testing, data quality, and financial risk."
         />
-        <link rel="canonical" href="https://probmatrix.io/insights/articles" />
+        <link rel="canonical" href="https://probmatrix.io/home/blogs" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       </Helmet>
       <section className="ar-section">
@@ -45,7 +45,7 @@ export default function Articles(): JSX.Element {
                   <span>{article.read}</span>
                 </div>
 
-                <Link className="ar-cta" to={`/insights/articles/${article.slug}`}>
+                <Link className="ar-cta" to={`/home/blogs/${article.slug}`}>
                   Learn More <span aria-hidden="true">→</span>
                 </Link>
               </div>

@@ -27,7 +27,7 @@ const navLinks: NavItem[] = [
     label: 'Insights',
     to: '/insights',
     children: [
-      { label: 'Articles', to: '/insights/articles' },
+      { label: 'Articles', to: '/home/blogs' },
       { label: 'IFRS 9 Guides', to: '/insights/guides' },
       { label: 'White Papers', to: '/insights/white-papers' },
       { label: 'Case Studies', to: '/insights/case-studies' },

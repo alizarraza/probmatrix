@@ -8,7 +8,7 @@ const insightSections = [
     title: 'Articles',
     description:
       'Read the latest insights on IFRS 9, credit risk modelling, expected credit loss, and regulatory compliance.',
-    link: '/insights/articles',
+    link: '/home/blogs',
     button: 'View Articles',
   },
   {

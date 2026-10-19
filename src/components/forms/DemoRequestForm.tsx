@@ -48,7 +48,7 @@ export default function DemoRequestForm({ onSuccess }: { onSuccess?: () => void 
         <input id="dm-legal-entity" name="legal_entity" type="text" required placeholder="Registered Company" />
       </div>
 
-      <RadioGroup
+      {/* <RadioGroup
         legend="FI type"
         name="fi_type"
         required
@@ -63,14 +63,14 @@ export default function DemoRequestForm({ onSuccess }: { onSuccess?: () => void 
           'Investment Firm',
           'Insurer',
         ]}
-      />
+      /> */}
 
-      <CheckboxGroup
+      {/* <CheckboxGroup
         legend="Primary Objective"
         name="primary_objective"
         required
         options={['ECL production', 'Parallel run', 'Model validation', 'Audit support', 'Vendor evaluation', 'PoC']}
-      />
+      /> */}
 
       <div className="form-field">
         <label htmlFor="dm-success-criteria">Success Criteria</label>

@@ -46,7 +46,7 @@ export default function ArticleDetail(): JSX.Element {
         <div className="ad-container ad-not-found">
           <h1 className="ad-title">Article not found</h1>
           <p className="ad-p">This article may have been moved or no longer exists.</p>
-          <Link className="ad-back" to="/insights/articles">
+          <Link className="ad-back" to="/home/blogs">
             ← Back to Articles
           </Link>
         </div>
@@ -59,7 +59,7 @@ export default function ArticleDetail(): JSX.Element {
       <div className="ad-glow" aria-hidden="true" />
 
       <div className="ad-container">
-        <Link className="ad-back" to="/insights/articles">
+        <Link className="ad-back" to="/home/blogs">
           ← Back to Articles
         </Link>
 

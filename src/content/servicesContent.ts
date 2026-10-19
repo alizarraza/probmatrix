@@ -19,7 +19,7 @@ export const heroSlides: HeroSlide[] = [
     eyebrow: heroContent.eyebrow,
     title: heroContent.title,
     subtitle: heroContent.subtitle,
-    primaryCta: { label: heroContent.primaryCta, to: '/contact' },
+    primaryCta: { label: heroContent.primaryCta, to: '/#faq' },
     secondaryCta: { label: heroContent.secondaryCta, to: '/services' },
     showStats: true,
   },
@@ -33,7 +33,7 @@ export const heroSlides: HeroSlide[] = [
       'Transparent, traceable, auditable calculations',
       'User training & handover included',
     ],
-    primaryCta: { label: 'See the Add-In', to: '/services#ifrs9-add-in' },
+    primaryCta: { label: 'See the Add-In', to: '/solutions/ifrsaddin' },
     secondaryCta: { label: 'Request a Demo', to: '/contact', action: 'demo-modal' },
   },
   {
@@ -46,7 +46,7 @@ export const heroSlides: HeroSlide[] = [
       'Consistent, regulator-aligned methodology',
       'Built for banks, MFIs, DFIs, NBFCs & insurers',
     ],
-    primaryCta: { label: 'Learn More', to: '/services' },
+    primaryCta: { label: 'Learn More', to: '/solutions/credx' },
     secondaryCta: { label: 'Talk to Us', to: '/contact' },
   },
   {

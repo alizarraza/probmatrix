@@ -338,7 +338,7 @@ export const articles: Article[] = [
     date: "October 1, 2026",
     read: "3 min read",
     body: [
-      { type: "image", src: "/articles/12monthecl.jpeg", alt: "12-Month ECL vs Lifetime ECL: Key Differences Explained" },
+      { type: "image", src: "/articles/12monthec.jpeg", alt: "12-Month ECL vs Lifetime ECL: Key Differences Explained" },
       { type: "p", text: "One of the most important concepts under IFRS 9 is understanding 12-month ECL vs lifetime ECL. The difference determines how far into the future an entity should consider possible defaults when measuring expected credit losses." },
       { type: "p", text: "This distinction is closely linked with the IFRS 9 ECL stages under the General Approach." },
       { type: "h2", text: "What Is 12-Month Expected Credit Loss?" },
@@ -998,7 +998,7 @@ export const articles: Article[] = [
     date: "October 4, 2026",
     read: "2 min read",
     body: [
-      { type: "image", src: "/articles/backtesting/image1.jpeg", alt: "Backtesting Credit Risk Models: Methods, Metrics and Best Practices" },
+      { type: "image", src: "/articles/backtesting.jpeg", alt: "Backtesting Credit Risk Models: Methods, Metrics and Best Practices" },
       { type: "p", text: "Credit risk model backtesting compares model predictions with actual outcomes to determine whether a model continues to perform as expected." },
       { type: "p", text: "For IFRS 9, backtesting is particularly important because PD, LGD, EAD and ECL estimates directly influence impairment. A model may be conceptually sound, but if predicted outcomes consistently differ from actual experience, recalibration or redevelopment may be required." },
       { type: "h2", text: "What Is Credit Model Backtesting?" },
@@ -1056,7 +1056,7 @@ export const articles: Article[] = [
     date: "October 4, 2026",
     read: "3 min read",
     body: [
-      { type: "image", src: "/articles/modelmonitoring/image1.jpeg", alt: "Credit Risk Model Monitoring: What to Monitor After Validation" },
+      { type: "image", src: "/articles/calcul.jpeg", alt: "Credit Risk Model Monitoring: What to Monitor After Validation" },
       { type: "p", text: "Credit risk model monitoring starts after validation, not before it." },
       { type: "p", text: "Even a well-validated model can deteriorate over time as portfolio characteristics, borrower behavior, economic conditions and data quality change. That is why banks need a structured model monitoring framework to identify problems early." },
       { type: "h2", text: "What Should Banks Monitor?" },
