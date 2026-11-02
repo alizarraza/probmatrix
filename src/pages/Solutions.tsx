@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import { images, img } from '../content/images'
 import { IconExcel, IconChart, IconCheckCircle, IconArrowRight } from '../components/icons'
 import FinalCTA from '../components/FinalCTA'
+import Contact from './Contact'
+import ContactComponent from '../components/ContactComponent'
 
 export default function Solutions() {
   return (
@@ -144,6 +146,7 @@ export default function Solutions() {
           }
         `}</style>
       </section>
+<ContactComponent />
 
       <FinalCTA
         title="Not sure which solution fits your team?"

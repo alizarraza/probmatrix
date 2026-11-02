@@ -10,6 +10,8 @@ import Statistics from '../components/Statistics'
 import Testimonials from '../components/Testimonials'
 import FAQ from '../components/FAQ'
 import FinalCTA from '../components/FinalCTA'
+import Contact from './Contact'
+import ContactComponent from '../components/ContactComponent'
 
 
 export default function Home() {
@@ -33,6 +35,7 @@ export default function Home() {
       <Statistics />
       <Testimonials />
       <FAQ />
+      <ContactComponent />
       <FinalCTA />
     </>
   )

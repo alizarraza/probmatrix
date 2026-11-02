@@ -17,6 +17,8 @@ import {
 import { IconCheckCircle, IconArrowRight } from '../components/icons'
 import ExpertForm from '../components/forms/ExpertForm'
 import { Helmet } from 'react-helmet-async'
+import Contact from './Contact'
+import ContactComponent from '../components/ContactComponent'
 
 export default function Services() {
   const [expertOpen, setExpertOpen] = useState(false)
@@ -182,6 +184,7 @@ export default function Services() {
 
       <Architecture />
 
+<ContactComponent />
       {/* Email Our Expert */}
       <section className="section" style={{ background: 'var(--bg-secondary)' }}>
         <div className="container">
